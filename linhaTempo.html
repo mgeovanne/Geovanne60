@@ -11,7 +11,7 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="styles/main.css" />
     <script defer src="scripts/main.js"></script>
-    <title>Bal das Cabeças 2 - Geovanne60</title>
+    <title>Minha história | Geovanne60</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
@@ -116,124 +116,7 @@
       margin-bottom: 14px;
     }
 
-    /* vídeo destaque (arquivo local) */
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-    }
-
-    .video-container video {
-      width: 100%;
-      display: block;
-    }
-
-    /* YouTube responsivo */
-    .youtube-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .youtube-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* galeria de vídeos */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .video-grid-item {
-      background: rgba(5, 5, 15, 0.9);
-      border-radius: 14px;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
-    }
-
-    .video-grid-item h3 {
-      font-size: 13px;
-      margin-bottom: 6px;
-      color: var(--dourado);
-    }
-
-    .video-grid-item p {
-      font-size: 11px;
-      color: var(--cinza);
-      margin-bottom: 6px;
-    }
-
-    .video-grid-item video,
-    .video-grid-item iframe {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    /* botões */
-    .botoes-linha {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: none;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
-    }
-
-    .btn-vermelho {
-      background: linear-gradient(135deg, #ff1b2d, #b00010);
-      color: #fff;
-      box-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
-    }
-
-    .btn-dourado {
-      background: linear-gradient(135deg, #f5c451, #b0831a);
-      color: #1a1305;
-      box-shadow: 0 0 18px rgba(245, 196, 81, 0.7);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 22px rgba(0, 0, 0, 0.9);
-    }
-
-    .btn span {
-      margin-left: 6px;
-      font-size: 14px;
-    }
-
-    footer {
+      footer {
       max-width: 1100px;
       margin: 0 auto;
       padding: 10px 20px 24px;
@@ -264,7 +147,18 @@
         font-size: 22px;
       }
     }
-  </style>
+
+/* Responsivo: no celular, 1 coluna */
+@media (max-width: 700px){
+  .card__linhatempo .midias{
+    grid-template-columns: 3fr;
+  }
+
+  main{
+    padding: 18px 14px 32px;
+  }
+}
+</style>
 
 
 
@@ -320,7 +214,7 @@ de cabeça feita, com fantasia, alegria e desinibição.</p>
   <div class="desc">
       <h2>1976</h2><br>
       <p>Em 1976, realizei minha<strong> primeira comunhão</strong>, marcando um momento especial de fé, emoção e encontro
-com o sagrado, com direito a traje alinhado e gravatinha.</p>
+com o sagrado, com direito a traje alinhado e gravatinha borboleta.</p>
   </div>     
       <img src="assets/Linha do Tempo/Primeira comunhão.jpg" width="40%" height="auto" alt="">  
 </div>
