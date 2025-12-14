@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/main.js"></script>
+  <title>Bal das Cabeças 2 - Geovanne60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.9);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+ header {
+      border-bottom: 1px solid rgba(245, 196, 81, 0.25);
+      background: linear-gradient(
+          90deg,
+          rgba(229, 9, 20, 0.35),
+          rgba(245, 196, 81, 0.08),
+          rgba(229, 9, 20, 0.25)
+      );
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    }
+<!--/* CONTAINER DA GALERIA */-->
+
+
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;              <!--/* permite que quebrem linha */-->
+  justify-content: center;      <!--/* centraliza os itens */-->
+  gap: 1.5rem;                  <!--/* espaçamento entre os cards */-->
+  margin: 0;
+  padding: 0;
+}
+
+<!--/* CADA ITEM DA GALERIA */-->
+
+div.gallery-item {
+  border: 2px dotted rgba(245,196,81,0.35);
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  border-radius: 1rem;
+  padding: 2%;
+ <!-- /* width: 200%;  <-- removido */
+  
+  /* Faz o card se adaptar:
+     - base de ~280px
+     - cresce até um limite confortável
+  */-->
+
+  flex: 1 1 calc(25% - 1.5rem);
+  max-width: calc(25% - 1.5rem);
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+}
+
+<!--/* IMAGENS DENTRO DO CARD */-->
+div.gallery-item img {
+  width: 100%;       /* ocupa toda a largura do card */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+<!--/* DESCRIÇÃO */-->
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: left;
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+}
+.desc h4 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.desc h3 {
+  font-size: 2.5rem;
+  color: whitesmoke;
+  text-align: center;
+  margin: 0;
+}
+
+.desc h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+
+.gallery-item:hover{
+  background-color: var(--background-secondary-color);
+  transition-duration: 2s;
+  transform: scale(1.3);
+
+}
+
+<!--/* ====== RESPONSIVIDADE ====== */
+
+/* TABLET: reduz um pouco o limite máximo do card, se quiser */-->
+
+@media (max-width: 768px) {
+  div.gallery-item {
+    max-width: 320px;
+  }
+}
+
+<!--/* CELULAR: cards quase 100% da largura, um embaixo do outro */-->
+
+@media (max-width: 480px) {
+  div.gallery {
+    justify-content: center;
+  }
+
+  div.gallery-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  div.gallery-item img {
+    width: 100%;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="assets/6EC8FE7E-8037-4745-980E-F18C97F056FD_1_201_a.jpeg" alt="cabeças" width="15%">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="inicio.html" target="_blank">Início</a>
+            <a class="cabecalho__menu__link" href="sobreoBal.html" target="_blank">Origem do Bal</a> 
+            <a class="cabecalho__menu__link" href="localEvento.html" target="_blank">Local do Evento</a>
+            <a class="cabecalho__menu__link" href="Balde50.html" target="_blank">O Bal de 50</a>
+            <a class="cabecalho__menu__link" href="linhaTempo.html" target="_blank">Sobre mim</a>
+            <a class="cabecalho__menu__link" href="dressCode.html" target="_blank">Dress Code</a>
+            <a class="cabecalho__menu__link" href="servicos.html" target="_blank">Serviços</a>
+            <a class="cabecalho__menu__link" href="listaPresentes.html" target="_blank">Presentes</a>        
+            <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
+        </nav>
+        
+    </header>
+
+  <main>
+    <h1>Bal das Cabeças</h1><br><br>
+    <h4>Geovanne60</h4><br><br>
+
+
+
+
+<div class="gallery">
+
+    <div class="gallery-item">
+        <a target="_blank" href="sobreoBal.html">
+            <img src="assets/Baile Surrealista de 1972.jpeg" alt="História do Bal">
+        </a>
+            <div class="desc">
+                <a target="_blank" href="sobreoBal.html">
+                <h4>A Origem do Bal</h4>
+                <p> O Surrealismo de Salvador Dalí foi o precursor do Bal das Cabeças!</p>
+                </a>
+            </div>
+            
+    </div>
+
+    <div class="gallery-item">
+    <a target="_blank" href="localEvento.html">
+        <img src="assets/DB440DB4-1271-4360-842B-858A14F6E63D.jpeg" alt="Fachada do MAM" width="600" height="400">
+    </a>
+        <div class="desc"><h4>Local do Evento</h4>
+            <a target="_blank" href="localEvento.html">
+            <h3>MAM</h3>
+            <h3>Museu de Arte Moderna</h3>
+            <h5>Av. Infante Dom Henrique, 85 - Parque do Flamengo, Rio de Janeiro - RJ</h5>
+            <h5>Rio de Janeiro (RJ)</h5>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="gallery-item">
+        <a target="_blank" href="Balde50.html">
+        <img src="assets/B5BE1BFE-5FD3-4C37-B49C-19B1045CB171_1_105_c.jpeg" alt="Bal de 50 anos" width="600" height="400"></a>
+    
+        <div class="desc">
+            <a target="_blank" href="Balde50.html">
+            <h4>Sobre o Bal</h4>
+            <p>O Bal das Cabeças nasceu como uma celebração do inusitado, da criatividade e da <strong>liberdade de ser quem se é </strong>...</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <a target="_blank" href="linhaTempo.html">
+        <img src="assets/Sobre mim Foto.JPG" alt="Sobre Mim" width="600" height="400"></a>
+    
+        <div class="desc">
+            <a target="_blank" href="linhaTempo.html">
+            <h4>Sobre mim</h4>
+            <p>Conheça um pouco da minha trajetória até aqui!</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="gallery">
+ 
+    <div class="gallery-item">
+        <a target="_blank" href="dressCode.html">
+        <img src="assets/F0503290-1D2E-4319-A99F-99BDE6F226B2_1_201_a.jpeg" alt="Dress Code e Cabeças" width="600" height="400">
+        </a>
+        <div class="desc">
+            <a target="_blank" href="dressCode.html"></a>
+            <h4>Dress code e Cabeças</h4>
+            <p>Se inspire em algumas ideias e vista sua cabeça</p>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="gallery-item">
+        <a target="_blank" href="servicos.html">
+        <img src="assets/FE417885-91FD-4D16-BFEE-7FC1543805B8.jpeg" alt="Hotel Rio de Janeiro" width="600" height="400">
+        </a>
+        <div class="desc">
+            <a target="_blank" href="servicos.html">
+            <h4>Serviços</h4>
+            <p>Sugestões de Hotéis e Salões</p>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="gallery-item">
+        <a target="_blank" href="listaPresentes.html">
+        <img src="assets/22E762BB-C058-497E-A81B-ADF17FF3F1A8_4_5005_c.jpeg" alt="Símbolo Doação" width="600" height="400">
+        </a>
+    <div class="desc">
+        <a target="_blank" href="listaPresentes.html">
+        <h4>Como me presentear</h4>
+        <p>Para mim sua presença é o meu maior presente. Mas se mesmo assim, você deseja me presentear, veja algumas sugestões que me farão feliz!</p>
+        </div>
+        </a>
+
+    </div>
+
+    <div class="gallery-item">
+        <a target="_blank" href="confirmacaoPresenca.html">
+            <img src="assets/33E94776-A84F-407C-946F-E2DB1D02B4FD_4_5005_c.jpeg" alt="RSVP" width="400" height="200">
+        </a>
+    <div class="desc">
+        <a target="_blank" href="confirmacaoPresenca.html">
+        <h4>RSVP</h4>
+        </a>
+    </div>
+        
+
+    </div>
+
+
+</div>
+
+
+
+
+  </main>
+
+<footer class="rodape">
+    <p><span>#baldascabeças</span></p>
+    <p><span>#geovanne60</span></p>
+  </footer>
+
+
+
+</body>
+
+</html>
+
+
+
+

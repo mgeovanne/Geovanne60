@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adornos de Cabeça & Chapelaria - Bal das Cabeças 2</title>
+
+  <!-- Fontes do app -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Rochester&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cor-fundo: #050308;
+      --cor-fundo-card: rgba(0, 0, 0, 0.82);
+      --cor-dourado: #F5C451;
+      --cor-dourado-soft: rgba(245, 196, 81, 0.32);
+      --cor-texto: #ffffff;
+      --fonte-primaria: "Comfortaa", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --fonte-rotulo: "Rochester", "Brush Script MT", cursive;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #201020 0, #050308 45%, #000 100%);
+      color: var(--cor-texto);
+      font-family: var(--fonte-primaria);
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 5vh 6vw 8vh;
+    }
+
+    /* Cabeçalho */
+    .cabecalho-adornos {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .cabecalho-adornos__rotulo {
+      font-family: var(--fonte-rotulo);
+      font-size: 2.2rem;
+      color: var(--cor-dourado);
+      letter-spacing: 0.05em;
+    }
+
+    .cabecalho-adornos__titulo {
+      margin: 0.3rem 0 0.6rem;
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .cabecalho-adornos__subtitulo {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #d7d7d7;
+    }
+
+    .cabecalho-adornos__subtitulo strong {
+      color: var(--cor-dourado);
+      font-weight: 700;
+    }
+
+    /* Separador */
+    .linha-brilho {
+      width: 140px;
+      height: 1px;
+      margin: 1.8rem auto 0;
+      background-image: linear-gradient(
+        to right,
+        transparent,
+        var(--cor-dourado),
+        transparent
+      );
+      box-shadow: 0 0 18px var(--cor-dourado-soft);
+    }
+
+    /* Seções */
+    .secao {
+      margin-top: 3rem;
+    }
+
+    .secao__titulo {
+      font-size: 1.2rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cor-dourado);
+      margin-bottom: 1.2rem;
+    }
+
+    .secao__descricao {
+      max-width: 640px;
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Grid responsivo de cards */
+    .galeria-adornos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    @media (max-width: 1100px) {
+      .galeria-adornos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .galeria-adornos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrapper {
+        padding-inline: 5vw;
+      }
+
+      .cabecalho-adornos__titulo {
+        font-size: 1.4rem;
+        letter-spacing: 0.12em;
+      }
+
+      .galeria-adornos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card */
+    .card-adornos {
+      border-radius: 1.1rem;
+      border: 2px dotted var(--cor-dourado-soft);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.02),
+        var(--cor-fundo-card)
+      );
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+      padding: 1.4rem 1.4rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-adornos::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(245, 196, 81, 0.18), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .card-adornos:hover::before {
+      opacity: 1;
+    }
+
+    .card-adornos:hover {
+      border-style: solid;
+      border-color: var(--cor-dourado);
+      transform: translateY(-2px);
+      transition: all 0.25s ease-out;
+    }
+
+    .card-adornos__categoria {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #b9b9b9;
+    }
+
+    .card-adornos__nome {
+      font-size: 1.05rem;
+      margin: 0.15rem 0 0.35rem;
+      color: var(--cor-dourado);
+    }
+
+    .card-adornos__cidade {
+      font-size: 0.8rem;
+      color: #e2e2e2;
+      opacity: 0.9;
+    }
+
+    .card-adornos__texto {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #e2e2e2;
+      margin: 0.4rem 0 0.6rem;
+    }
+
+    .card-adornos__tags {
+      font-size: 0.75rem;
+      color: #c6c6c6;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Links */
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .card-links a {
+      font-size: 0.78rem;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 196, 81, 0.55);
+      color: var(--cor-dourado);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .card-links a span.icone {
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .card-links a:hover {
+      background: rgba(245, 196, 81, 0.16);
+    }
+
+    /* Rodapé suave */
+    .nota-final {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #a5a5a5;
+      text-align: center;
+      max-width: 720px;
+    }
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.96);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #22111f 0, #050007 40%, #000 100%);
+      color: var(--branco);
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hospedagem-page {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 28px;
+      padding: 26px 22px 32px;
+      background: radial-gradient(circle at top, rgba(245,196,81,0.08), rgba(5,0,7,0.98));
+      border: 2px #FFD700;
+      border-style: dotted;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 10px #FFD70055;
+     /*      
+      border: 1px solid rgba(245,196,81,0.35);
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+      */
+      position: relative;
+      overflow: hidden;
+    }
+
+   .hospedagem-header {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hospedagem-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hospedagem-header h1 {
+      margin-top: 12px;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: var(--branco);
+      text-shadow: 0 0 16px rgba(0,0,0,0.9);
+    }
+
+    .hospedagem-header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .hospedagem-header h1::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      margin: 11px auto 0;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0.75;
+    }
+
+    /* GRUPOS DE HOTÉIS */
+
+   
+
+.voltar {
+      display: inline-flex;
+      align-items: right;
+      justify-content: right;
+      margin-left: 70%;
+      margin-bottom: 1%;
+      margin-right: 10%;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+.voltar:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  background: #f9f9f9;
+  color: #000;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 26, 2, 0.55);
+}    
+
+
+    .hotel-group h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--branco);
+    }
+
+    .hotel-group-desc {
+      font-size: 13px;
+      color: var(--cinza);
+      max-width: 640px;
+    }
+
+    .hotel-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .hotel-card {
+      background: var(--cor-fundo-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 0 18px rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .hotel-card-image {
+      position: relative;
+      overflow: hidden;
+      max-height: 180px;
+    }
+
+    .hotel-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hotel-card:hover .hotel-card-image img {
+      transform: scale(1.03);
+    }
+
+    .hotel-card-body {
+      padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .hotel-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .hotel-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .hotel-bairro {
+      font-size: 12px;
+      color: var(--cinza);
+    }
+
+    .hotel-desc {
+      font-size: 12px;
+      color: var(--cinza);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .hotel-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      background: linear-gradient(135deg, #f5c451, #b0831a);
+      color: #1a1305;
+      box-shadow: 0 0 16px rgba(245,196,81,0.65);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.15s ease;
+    }
+
+    .btn-link span {
+      margin-left: 6px;
+      font-size: 13px;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(245,196,81,0.9);
+      opacity: 0.95;
+    }
+
+    .hotel-card:hover{
+        transition: 2s;
+        transform: scale(1.2);
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 768px) {
+      .hospedagem-page {
+        padding: 22px 14px 26px;
+        border-radius: 22px;
+      }
+
+      .hospedagem-header h1 {
+        font-size: 19px;
+        letter-spacing: 0.16em;
+      }
+
+      .hotel-group {
+        padding: 16px 12px 18px;
+      }
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <main class="hospedagem-page">
+    <!-- Cabeçalho da página -->
+    <header class="hospedagem-header">
+        <div>
+          <a class="voltar-link" href="servicos.html" target="_blank"><span class="voltar">Voltar</span></a>
+      </div>
+        <span class="hospedagem-tag">Adornos & Chapelaria</span>
+      <h1 class="cabecalho-adornos__titulo">
+        Adornos & Chapelaria Autoral
+      </h1>
+      <p class="cabecalho-adornos__subtitulo">
+        Uma curadoria de <strong>chapeleiros e designers de headpieces</strong> que criam
+        peças esculturais, chapéus, fascinators e tiaras para casamentos, red carpets,
+        corridas, óperas e, claro, para brilhar no 
+        <strong>Bal das Cabeças – Geovanne60</strong>.
+      </p>
+      <div class="linha-brilho"></div>
+    </header>
+
+    <!-- Seção Brasil -->
+    <section class="secao">
+      <h2 class="secao__titulo">Brasil · Alta chapelaria & head couture</h2>
+      <p class="secao__descricao">
+        Profissionais que trabalham com <strong>chapelaria artesanal, sob medida e headpieces de luxo</strong> 
+        no Brasil, com foco em noivas, madrinhas, eventos black tie e produções de moda.
+      </p>
+
+      <div class="galeria-adornos">
+        <!-- Graciella Starling -->
+        <article class="card-adornos">
+          <div>
+            <div class="card-adornos__categoria">Alta chapelaria · Brasil</div>
+            <h3 class="card-adornos__nome">Graciella Starling</h3>
+            <div class="card-adornos__cidade">São Paulo · SP</div>
+            <img src="assets/Cabecas Denis/Graziela Starling.webp" alt="Graciella Starling" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 8px;">
+            <p class="card-adornos__texto">
+              Referência em <em>head couture</em> no Brasil, cria chapéus, fascinators, tiaras
+              e arranjos sob medida, com forte influência da chapelaria europeia e acabamento
+              artesanal de altíssimo nível.
+            </p>
+            <div class="card-adornos__tags">
+              Chapéus de festa · Noivas · Fascinators · Tiaras sob medida
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://www.graciellastarling.com/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#127760;</span> Site oficial
+            </a>
+            <a href="https://www.instagram.com/graciellastarling/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#x1F4F7;</span> Instagram
+            </a>
+          </div>
+        </article>
+
+        <!-- Denis Linhares -->
+        <article class="card-adornos">
+          <div>
+            <div class="card-adornos__categoria">Chapelaria & adereços · Brasil</div>
+            <h3 class="card-adornos__nome">Denis Linhares</h3>
+            <div class="card-adornos__cidade">Rio de Janeiro · RJ</div>
+            <img src="assets/Cabecas Denis/Denis Borboleta.jpeg" alt="Denis Linhares" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 8px;">
+            <p class="card-adornos__texto">
+              Chapeleiro conhecido por suas criações autorais e dramáticas, com cartolas,
+              casquetes e chapéus que transitam entre o clássico e o lúdico — perfeitos
+              para cabeças que querem protagonizar a noite.
+            </p>
+            <div class="card-adornos__tags">
+              Chapéus autorais · Cartolas · Casquetes · Peças sob medida
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://www.instagram.com/denislinhareschapelaria/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#x1F4F7;</span> Instagram atelier
+            </a>
+            <a href="https://www.instagram.com/denislinharesloja/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#127760;</span> Loja / vendas
+            </a>
+          </div>
+        </article>
+
+        <!-- Ramon Quinhones -->
+        <article class="card-adornos">
+          <div>
+            <div class="card-adornos__categoria">Beleza & adornos de cabeça · Brasil</div>
+            <h3 class="card-adornos__nome">Ramon Quinhones</h3>
+            <div class="card-adornos__cidade">São Paulo · SP</div>
+            <img src="assets/Cabecas Denis/Ramon Quinhones.jpeg" alt="Ramon Quinhones" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 8px;">
+            <p class="card-adornos__texto">
+              Hair stylist especializado em noivas, madrinhas e produções de festa, com
+              foco em penteados elaborados e arranjos de cabeça que integram flores,
+              aplicações e estruturas cenográficas.
+            </p>
+            <div class="card-adornos__tags">
+              Noivas · Madrinhas · Arranjos de cabeça para festa e Carnaval
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://www.instagram.com/ramon.quinhones/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#x1F4F7;</span> Instagram
+            </a>
+            <a href="https://www.tvgazeta.com.br/videos/como-fazer-um-arranjo-de-cabeca-para-o-carnaval/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#127909;</span> Tutorial arranjo de cabeça
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção Internacional -->
+    <section class="secao">
+      <h2 class="secao__titulo">Internacional · Millinery & headpieces</h2>
+      <p class="secao__descricao">
+        Chapeleiros e marcas internacionais que assinam peças icônicas para 
+        <em>royal weddings</em>, red carpets, corridas como Ascot e editoriais de moda. 
+        Inspirações perfeitas para quem quer ousar nas <strong>cabeças do Bal</strong>.
+      </p>
+
+      <div class="galeria-adornos">
+        <!-- Philip Treacy -->
+        <article class="card-adornos">
+          <div>
+            <div class="card-adornos__categoria">Haute couture millinery</div>
+            <h3 class="card-adornos__nome">Philip Treacy</h3>
+            <div class="card-adornos__cidade">Londres · Reino Unido</div>
+            <img src="assets/Cabecas Denis/Philip Treacy.jpg" alt="Philip Treacy" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 8px;">
+            <p class="card-adornos__texto">
+              Um dos nomes mais celebrados da chapelaria mundial, com criações esculturais
+              usadas por realeza, celebridades e em desfiles de alta-costura. Ideal para
+              quem busca <strong>drama, volume e surrealismo</strong> nas cabeças.
+            </p>
+            <div class="card-adornos__tags">
+              Royal weddings · Red carpet · Peças esculturais
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://www.philiptreacy.co.uk/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#127760;</span> Site oficial
+            </a>
+            <a href="https://www.instagram.com/philiptreacy/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#x1F4F7;</span> Instagram
+            </a>
+          </div>
+        </article>
+
+        <!-- Stephen Jones -->
+        <article class="card-adornos">
+          <div>
+            <div class="card-adornos__categoria">Millinery de vanguarda</div>
+            <h3 class="card-adornos__nome">Stephen Jones Millinery</h3>
+            <div class="card-adornos__cidade">Londres · Reino Unido</div>
+            <img src="assets/Cabecas Denis/Stephen Jones.jpeg" alt="Stephen Jones" width="100%" style="border-radius: 12px; margin-top: 8px; margin-bottom: 8px;">
+            <p class="card-adornos__texto">
+              Conhecido por sua abordagem radical e inventiva, assina chapéus para grandes 
+              maisons e exposições em museus. Indicado para quem ama <strong>conceitos
+              artísticos e formas inesperadas</strong>.
+            </p>
+            <div class="card-adornos__tags">
+              Runway couture · Conceitual · Exposições de moda
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://stephenjonesmillinery.com/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#127760;</span> Site oficial
+            </a>
+            <a href="https://www.instagram.com/stephenjonesmillinery/" target="_blank" rel="noopener noreferrer">
+              <span class="icone">&#x1F4F7;</span> Instagram
+            </a>
+          </div>
+        </article>
+
+            
+      </div>
+    </section>
+
+    <p class="nota-final">
+      Esta página é apenas uma curadoria de inspiração para quem deseja produzir ou encomendar
+      <strong>cabeças inesquecíveis</strong> para o Bal das Cabeças 2 – Geovanne60.  
+      Verifique sempre prazos, valores e disponibilidade diretamente com cada profissional.
+    </p>
+  </main>
+</body>
+</html>

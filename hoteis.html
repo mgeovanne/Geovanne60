@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospedagem – Bal das Cabeças</title>
+
+  <!-- Se você já tem essas variáveis no app, pode remover esse :root -->
+  <style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.96);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #22111f 0, #050007 40%, #000 100%);
+      color: var(--branco);
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hospedagem-page {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 28px;
+      padding: 26px 22px 32px;
+      background: radial-gradient(circle at top, rgba(245,196,81,0.08), rgba(5,0,7,0.98));
+      border: 2px #FFD700;
+      border-style: dotted;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 10px #FFD70055;
+     /*      
+      border: 1px solid rgba(245,196,81,0.35);
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+      */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hospedagem-page::before {
+      content: "";
+      position: absolute;
+      top: -35%;
+      right: -10%;
+      width: 220px;
+      height: 220%;
+      background: radial-gradient(circle, rgba(245,196,81,0.20), transparent 70%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hospedagem-header {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hospedagem-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hospedagem-header h1 {
+      margin-top: 12px;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: var(--branco);
+      text-shadow: 0 0 16px rgba(0,0,0,0.9);
+    }
+
+    .hospedagem-header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .hospedagem-header h1::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      margin: 11px auto 0;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0.75;
+    }
+
+    /* GRUPOS DE HOTÉIS */
+
+    .hotel-group {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      padding: 18px 16px 20px;
+      border-radius: 20px;
+      background: rgba(5,5,15,0.94);
+      border: 1px solid rgba(245,196,81,0.22);
+      box-shadow: 0 0 28px rgba(0,0,0,0.8);
+    }
+
+    .hotel-group-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .hotel-group-tag {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+
+.voltar {
+      display: inline-flex;
+      align-items: right;
+      justify-content: right;
+      margin-left: 70%;
+      margin-bottom: 1%;
+      margin-right: 10%;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+.voltar:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  background: #f9f9f9;
+  color: #000;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 26, 2, 0.55);
+}    
+
+
+    .hotel-group h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--branco);
+    }
+
+    .hotel-group-desc {
+      font-size: 13px;
+      color: var(--cinza);
+      max-width: 640px;
+    }
+
+    .hotel-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .hotel-card {
+      background: var(--cor-fundo-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 0 18px rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .hotel-card-image {
+      position: relative;
+      overflow: hidden;
+      max-height: 180px;
+    }
+
+    .hotel-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hotel-card:hover .hotel-card-image img {
+      transform: scale(1.03);
+    }
+
+    .hotel-card-body {
+      padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .hotel-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .hotel-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .hotel-bairro {
+      font-size: 12px;
+      color: var(--cinza);
+    }
+
+    .hotel-desc {
+      font-size: 12px;
+      color: var(--cinza);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .hotel-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      background: linear-gradient(135deg, #f5c451, #b0831a);
+      color: #1a1305;
+      box-shadow: 0 0 16px rgba(245,196,81,0.65);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.15s ease;
+    }
+
+    .btn-link span {
+      margin-left: 6px;
+      font-size: 13px;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(245,196,81,0.9);
+      opacity: 0.95;
+    }
+
+    .hotel-card:hover{
+        transition: 2s;
+        transform: scale(1.2);
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 768px) {
+      .hospedagem-page {
+        padding: 22px 14px 26px;
+        border-radius: 22px;
+      }
+
+      .hospedagem-header h1 {
+        font-size: 19px;
+        letter-spacing: 0.16em;
+      }
+
+      .hotel-group {
+        padding: 16px 12px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="hospedagem-page">
+    <header class="hospedagem-header">
+      <div>
+          <a class="voltar-link" href="servicos.html" target="_blank"><span class="voltar">Voltar</span></a>
+      </div>
+      <span class="hospedagem-tag">Hospedagem · Zona Sul do Rio</span>
+      <h1>Hotéis</h1>
+      <p>
+        Sugestões de hotéis na Zona Sul do Rio, em diferentes categorias, para você curtir
+        o Bal das Cabeças com conforto, estilo e segurança.
+      </p>
+    </header>
+
+    <!-- 5 ESTRELAS -->
+    <section class="hotel-group" id="hoteis-5-estrelas">
+      <div class="hotel-group-header">
+        <span class="hotel-group-tag">Categoria Premium · 5 estrelas</span>
+        <h2>Luxo à beira-mar</h2>
+        <p class="hotel-group-desc">
+          Hotéis icônicos da Zona Sul, com serviço sofisticado, vista deslumbrante e estrutura
+          completa para uma experiência de alto padrão.
+        </p>
+      </div>
+
+      <div class="hotel-grid">
+        <!-- Copacabana Palace -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <!-- Substitua o caminho pela foto que você salvar -->
+            <img src="assets/Hoteis/5 estrelas/Copacabana Palace.jpg"
+                 alt="Fachada do Copacabana Palace, A Belmond Hotel">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">5★ · Clássico icônico</span>
+            <h3 class="hotel-name">Copacabana Palace, A Belmond Hotel</h3>
+            <p class="hotel-bairro">Copacabana · Avenida Atlântica</p>
+            <p class="hotel-desc">
+              Um dos hotéis mais emblemáticos do Rio, combinando tradição, glamour e uma
+              localização privilegiada de frente para a Praia de Copacabana.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.belmond.com/hotels/south-america/brazil/rio-de-janeiro/belmond-copacabana-palace/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fairmont Rio -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/5 estrelas/Fairmont Copacabana.avif"
+                 alt="Fachada do Fairmont Rio de Janeiro Copacabana">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">5★ · Design contemporâneo</span>
+            <h3 class="hotel-name">Fairmont Rio de Janeiro Copacabana</h3>
+            <p class="hotel-bairro">Copacabana · Posto 6</p>
+            <p class="hotel-desc">
+              Luxo moderno com piscinas de frente para o mar, gastronomia sofisticada e clima
+              de resort urbano à beira da orla.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.fairmont.com/en/hotels/rio-de-janeiro/fairmont-rio-de-janeiro-copacabana.html"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fasano Rio -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/5 estrelas/Fasano Ipanema.jpeg"
+                 alt="Fachada do Hotel Fasano Rio de Janeiro em Ipanema">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">5★ · Ipanema sofisticado</span>
+            <h3 class="hotel-name">Hotel Fasano Rio de Janeiro</h3>
+            <p class="hotel-bairro">Ipanema · Orla</p>
+            <p class="hotel-desc">
+              Endereço desejado em Ipanema, com rooftop icônico, vista para o Arpoador
+              e ambiente elegante para quem busca exclusividade.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://fasano.com.br/hotel/fasano-rio-de-janeiro/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Emiliano -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/5 estrelas/Emiliano Rio.jpg"
+                 alt="Piscina do Hotel Emiliano Copacabana Rio">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">5★ · Elegância em Copacabana</span>
+            <h3 class="hotel-name">Emiliano Rio</h3>
+            <p class="hotel-bairro">Copacabana · Próximo ao Posto 5</p>
+            <p class="hotel-desc">
+              Hotel de luxo premiado de frente para o mar, com arquitetura diferenciada, rooftop com vista
+              panorâmica e serviço exclusivo.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://emiliano.com.br/?hotel=rj"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4 ESTRELAS -->
+    <section class="hotel-group" id="hoteis-4-estrelas">
+      <div class="hotel-group-header">
+        <span class="hotel-group-tag">4 estrelas · Conforto & Vista</span>
+        <h2>Conforto na orla</h2>
+        <p class="hotel-group-desc">
+          Ótimas opções para quem quer equilíbrio entre conforto, localização privilegiada
+          e bom custo-benefício na Zona Sul.
+        </p>
+      </div>
+
+      <div class="hotel-grid">
+        <!-- Arena Copacabana -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/4 estrelas/Arena Copacabana Hotel.webp"
+                 alt="Fachada do Arena Copacabana Hotel">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">4★ · Frente mar</span>
+            <h3 class="hotel-name">Arena Copacabana Hotel</h3>
+            <p class="hotel-bairro">Copacabana · Orla</p>
+            <p class="hotel-desc">
+              Hotel moderno, de frente para a praia, com piscina na cobertura, academia
+              e fácil acesso a diversos pontos turísticos.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.arenahotel.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Windsor Excelsior -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/4 estrelas/Excelsior Copacabana.jpg"
+                 alt="Fachada do Windsor Excelsior Copacabana">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">4★ · Tradicional na praia</span>
+            <h3 class="hotel-name">Windsor Excelsior Copacabana</h3>
+            <p class="hotel-bairro">Copacabana · Avenida Atlântica</p>
+            <p class="hotel-desc">
+              Localização estratégica na orla, com vista para o mar, estrutura para eventos
+              e o padrão de serviço da Rede Windsor.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://windsorhoteis.com/hotel/windsor-excelsior-copacabana/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sol Ipanema -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/4 estrelas/Sol Ipanema Hotel.jpg"
+                 alt="Fachada do Sol Ipanema Hotel, de frente para a praia">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">4★ · Ponto nobre de Ipanema</span>
+            <h3 class="hotel-name">Sol Ipanema Hotel</h3>
+            <p class="hotel-bairro">Ipanema · Posto 9</p>
+            <p class="hotel-desc">
+              Hotel de frente para a praia, em um dos pontos mais desejados da cidade,
+              com vista privilegiada e estrutura renovada.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.solipanema.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hotel Arpoador -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/4 estrelas/Hotel Arpoador 4estrelas.webp"
+                 alt="Fachada do Hotel Arpoador, próximo à praia">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">4★ · Pé na areia</span>
+            <h3 class="hotel-name">Hotel Arpoador</h3>
+            <p class="hotel-bairro">Arpoador / Ipanema</p>
+            <p class="hotel-desc">
+              Boutique hotel pé na areia, com clima descolado, terraço com piscina e
+              uma das vistas mais queridas do Rio.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.hotelarpoador.com/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 ESTRELAS -->
+    <section class="hotel-group" id="hoteis-3-estrelas">
+      <div class="hotel-group-header">
+        <span class="hotel-group-tag">3 estrelas · Econômicos bem localizados</span>
+        <h2>Praticidade e bom custo-benefício</h2>
+        <p class="hotel-group-desc">
+          Opções mais econômicas, bem avaliadas e com boa localização na Zona Sul,
+          ideais para quem quer aproveitar o Bal e a cidade sem extrapolar o orçamento.
+        </p>
+      </div>
+
+      <div class="hotel-grid">
+        <!-- Mar Ipanema -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/3 estrelas/Mar Ipanema Hotel.jpg"
+                 alt="Fachada do Mar Ipanema Hotel">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">3★ · Charme em Ipanema</span>
+            <h3 class="hotel-name">Mar Ipanema Hotel</h3>
+            <p class="hotel-bairro">Ipanema · Quadrilátero do Charme</p>
+            <p class="hotel-desc">
+              Hotel moderno em uma das áreas mais desejadas do bairro, com fácil acesso
+              à praia, restaurantes e comércio.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://maripanema.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hotel Ipanema INN -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/3 estrelas/Ipanema INN.jpg"
+                 alt="Fachada do Hotel Vermont Ipanema">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">3★ · Localização estratégica</span>
+            <h3 class="hotel-name">Hotel Ipanema Inn</h3>
+            <p class="hotel-bairro">Ipanema</p>
+            <p class="hotel-desc">
+              Localizado no coração de Ipanema, este INN apresenta um estilo simples e 
+              acolhedor, com foco em conforto prático e boa relação custo-benefício. 
+              O ambiente costuma ser casual e funcional, com quartos compactos, porém bem 
+              equipados, decoração simples e iluminação agradável. 
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.ipanemainn.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ibis Copacabana Posto 5 -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/3 estrelas/Ibis Copacabana Posto 5.jpg"
+                 alt="Fachada do ibis Copacabana Posto 5">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">3★ · Rede internacional</span>
+            <h3 class="hotel-name">ibis Copacabana Posto 5</h3>
+            <p class="hotel-bairro">Copacabana · Próximo ao metrô</p>
+            <p class="hotel-desc">
+              Hotel econômico da rede ibis, a poucos minutos da praia e com fácil
+              mobilidade para toda a cidade.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://all.accor.com/hotel/9361/index.pt-br.shtml"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Windsor Copa -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/3 estrelas/Windsor Copa Hotel.jpg"
+                 alt="Fachada do Windsor Copa Hotel">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">3★ · Próximo à praia</span>
+            <h3 class="hotel-name">Windsor Copa Hotel</h3>
+            <p class="hotel-bairro">Copacabana</p>
+            <p class="hotel-desc">
+              Hotel compacto da Rede Windsor, bem localizado, a poucos quarteirões da
+              praia e da Avenida Atlântica.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://windsorhoteis.com/hotel/windsor-copa/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRÓXIMOS AO LOCAL DO EVENTO (MAM / FLAMENGO & CENTRO) -->
+    <section class="hotel-group" id="hoteis-proximos-mam">
+      <div class="hotel-group-header">
+        <span class="hotel-group-tag">Próximos ao MAM</span>
+        <h2>Perto do local do Bal</h2>
+        <p class="hotel-group-desc">
+          Hotéis com fácil acesso ao Museu de Arte Moderna (MAM) e ao Parque do Flamengo,
+          ideais para quem quer estar muito perto do local do evento.
+        </p>
+      </div>
+
+      <div class="hotel-grid">
+
+        <!-- Yoo2 Botafogo -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/SDU/Yoo2Room.jpg"
+                 alt="Vista do quarto do Yoo2Room Praia de Botafogo">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">Botafogo · 4★</span>
+            <h3 class="hotel-name">Yoo2</h3>
+            <p class="hotel-bairro">Praia de Botafogo</p>
+            <p class="hotel-desc">
+              O Yoo2 Design Suites Botafogo é um hotel urbano de estilo contemporâneo, 
+              com foco em design e conforto. Com seu estilo moderno e despojado, costuma 
+              combinar funcionalidade com elegância discreta.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://yoo2.com/pt/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hotel Novotel Botafogo -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/SDU/Novotel Botafogo.jpg"
+                 alt="Fachada do Novotel Praia de Botafogo">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">Botafogo · 4★</span>
+            <h3 class="hotel-name">Novotel</h3>
+            <p class="hotel-bairro">Praia de Botafogo</p>
+            <p class="hotel-desc">
+              Hotel contemporâneo e funcional, com design simples e elegante. Atmosfera 
+              prática, voltada para viajantes a negócios, casais e famílias, sem exageros 
+              de luxo e próximo à Praia de Botafogo e ao Botafogo Praia Shopping.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://all.accor.com/hotel/9631/index.pt-br.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Prodigy SDU -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/SDU/Prodigy SDU.jpg"
+                 alt="Fachada do Mengo Palace Hotel">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">Aeroporto SDU · 4★</span>
+            <h3 class="hotel-name">Prodigy</h3>
+            <p class="hotel-bairro">Centro</p>
+            <p class="hotel-desc">
+              O Prodigy fica ao lado do MAM. É um hotel de estilo moderno, urbano e 
+              arrojado, com foco em design contemporâneo e identidade vibrante. 
+              Fica no aeroporto Santos Dumont e é perfeito para quem quer praticidade na 
+              chegada e saída da Cidade.
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://www.grupowish.com/prodigy-santos-dumont-by-wish"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NOVOTEL SDU -->
+        <article class="hotel-card">
+          <div class="hotel-card-image">
+            <img src="assets/Hoteis/SDU/Novotel SDU.jpg"
+                 alt="Fachada do Scorial Rio Hotel, próximo ao Flamengo">
+          </div>
+          <div class="hotel-card-body">
+            <span class="hotel-badge">Aeroporto · 4★</span>
+            <h3 class="hotel-name">Novotel RJ SDU</h3>
+            <p class="hotel-bairro">Centro</p>
+            <p class="hotel-desc">
+              O Novotel do Centro, próximo ao aeroporto Santos Dumont (SDU) e ao MAM, 
+              combina praticidade com conforto moderno: é um hotel de padrão corporativo, 
+              com quartos bem equipados, boa manutenção e áreas comuns funcionais. 
+            </p>
+            <div class="hotel-actions">
+              <a class="btn-link"
+                 href="https://all.accor.com/hotel/6522/index.pt-br.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

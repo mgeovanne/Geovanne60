@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/main.js"></script>
+  <title>Bal das Cabeças 2 - Geovanne60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.9);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+   
+    header {
+      border-bottom: 1px solid rgba(245, 196, 81, 0.25);
+      background: linear-gradient(
+          90deg,
+          rgba(229, 9, 20, 0.35),
+          rgba(245, 196, 81, 0.08),
+          rgba(229, 9, 20, 0.25)
+      );
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    .titulo-pagina {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .titulo-pagina h1 {
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dourado);
+      text-shadow: 0 0 18px rgba(245, 196, 81, 0.7);
+      margin-bottom: 8px;
+    }
+
+    .titulo-pagina p {
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px 24px;
+      font-size: 11px;
+      color: var(--cinza);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      img{
+        width: 40%;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        }
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+
+      .titulo-pagina h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+  <header class="cabecalho">
+        <img src="assets/6EC8FE7E-8037-4745-980E-F18C97F056FD_1_201_a.jpeg" alt="cabeças" width="15%">
+        <nav class="cabecalho__menu">
+          <a class="cabecalho__menu__link" href="inicio.html" target="_blank">Início</a>
+          <a class="cabecalho__menu__link" href="sobreoBal.html" target="_blank">Origem do Bal</a> 
+          <a class="cabecalho__menu__link" href="localEvento.html" target="_blank">Local do Evento</a>
+          <a class="cabecalho__menu__link" href="Balde50.html" target="_blank">O Bal de 50</a>
+          <a class="cabecalho__menu__link" href="linhaTempo.html" target="_blank">Sobre mim</a>
+          <a class="cabecalho__menu__link" href="dressCode.html" target="_blank">Dress Code</a>
+          <a class="cabecalho__menu__link" href="servicos.html" target="_blank">Serviços</a>
+          <a class="cabecalho__menu__link" href="listaPresentes.html" target="_blank">Presentes</a>        
+          <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
+        </nav>
+    </header>
+
+  <main>
+
+    <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLSda-T77gwohKL2LMyk2xHwdYggEOkauOUKkaK65-fIWfeeoag/formResponse" 
+        method="POST" 
+        target="rsvp_iframe"
+        id="rsvp-form"
+        onsubmit="rsvpHandleSubmit()"
+      >
+       
+        <!-- E-mail principal (E-mail *) -->
+    <label for="emailpessoal">Informe teu E-mail (*)</label>
+    <input 
+      type="email" 
+      id="emailpessoal" 
+      name="entry.1341745646" 
+      required 
+      class="input-padrao"
+      placeholder="seuemail@domínio.com">
+    
+
+    
+    <!-- Nome -->
+    <label for="nome">Qual o teu Nome? (*)</label>
+    <input 
+      type="text" 
+      id="nome" 
+      name="entry.562010409" 
+      required
+      class="input-padrao"
+    >
+    
+    <!-- Sobrenome -->
+    <label for="sobrenome">Sobrenome *</label>
+    <input 
+      type="text" 
+      id="sobrenome" 
+      name="entry.218963339" 
+      required
+      class="input-padrao"
+    >
+
+<!-- Telefone para contato -->
+    <label for="telefone">Telefone móvel para contato?</label>
+    <input 
+      type="tel" 
+      id="telefone" 
+      name="entry.1529521014"
+      class="input-padrao" 
+      placeholder="+XX (XX) XXXXX-XXXX"
+    >
+
+<!-- Endereço para correspondência -->
+    <label for="endereco">Endereço para envio do convite?</label>
+    <input 
+      type="text" 
+      id="endereco" 
+      name="entry.825114056"
+      class="input-padrao" 
+      placeholder="Rua, Número, Bairro, Cidade, Estado"
+      required
+    >
+
+<!-- CEP do endereço -->
+    <label for="CEP">Informe o CEP:</label>
+    <input 
+      type="text
+      id="CEP" 
+      name="entry.1664405540"
+      class="input-padrao" 
+      placeholder="XXXXX-XXX"
+      required
+    >
+
+
+
+
+<!-- Possui acompanhante? (radio) -->
+    <label for="acompanhante">Possui acompanhante?</label>
+        <input 
+          type="text" 
+          id="acompanhante"
+          name="entry.1024493876" 
+          value="" 
+          required
+        >
+     
+
+        <!-- Nome e Sobrenome do Acompanhante -->
+    <label for="acompanhante">Nome e Sobrenome do Acompanhante?</label>
+    <input 
+      type="text" 
+      id="acompanhante" 
+      name="entry.1349354248"
+      class="input-padrao"
+    >
+
+        <!-- Necessidade especial -->
+    <label for="necessidade">Se tiver alguma necessidade especial (acessibilidade ou alimentação), ou se quiser 
+      deixar alguma mensagem para mim, escreva abaixo:</label>
+    <textarea 
+      id="necessidade" 
+      name="entry.806355275"
+      rows="10"
+      cols="90"
+      class="input-padrao">
+    </textarea>
+
+    <br><br>
+
+
+    <input type="submit" value="Enviar Formulário" class="enviar">
+
+    <br>
+
+  </form>
+
+</main>
+
+
+<!-- IFRAME ESCONDIDO PRA RECEBER A RESPOSTA DO FORM DO GOOGLE-->
+<iframe
+    name="rsvp_iframe"
+    id="rsvp_iframe"
+    style="display:none">
+</iframe>
+
+<!--MENSAGEM DE SUCESSO (INICIALMENTE OCULTA)-->
+<div id="rsvp-success" class="rsvp-success" hidden>
+    <h2>Presença confirmada! &#x1F942</h2>
+    <p>Espero você no <strong>Bal das Cabeças - Geovanne60 !</strong></p><br>
+    <p>Maiores detalhes serão enviados para o e-mail informado.</p>
+</div>
+
+</main>
+
+<!-- JAVASCRIPT PARA MOSTRAR A MENSAGEM DENTRO DA PAGINA -->
+<script>
+  let rsvpSubmitted = false;
+
+  function rsvpHandleSubmit() {
+    // marca que o usuário acabou de enviar o formulário
+    rsvpSubmitted = true;
+  }
+
+  // quando o iframe terminar de carregar (ou seja, quando o Google Forms responder)
+  document.addEventListener("DOMContentLoaded", function () {
+    const iframe = document.getElementById("rsvp_iframe");
+    const form   = document.getElementById("rsvp-form");
+    const successBox = document.getElementById("rsvp-success");
+
+    if (!iframe) return;
+
+    iframe.addEventListener("load", function () {
+      // evita rodar no primeiro load “em branco”
+      if (!rsvpSubmitted) return;
+
+      // 1) esconder o formulário
+      form.style.display = "none";
+
+      // 2) mostrar a mensagem de sucesso
+      successBox.hidden = false;
+
+      // opcional: resetar o flag
+      rsvpSubmitted = false;
+    });
+  });
+</script>
+
+<!-- PEQUENO TOQUE DE ESTILO SUGERIDO -->
+<style>
+  .rsvp-success {
+    margin-top: 2rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .rsvp-success h2 {
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+  }
+
+  .rsvp-success p {
+    margin: 10px;
+    font-size: 1.5rem;
+  }
+</style>
+
+  <footer class="rodape">
+    <p><span>#baldascabeças</span></p>
+    <p><span>#geovanne60</span></p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--
+<input type="hidden" name="entry.562010409" value=""> Nome Convidado
+<input type="hidden" name="entry.218963339" value="">Sobrenome Convidado
+<input type="hidden" name="entry.1529521014" value="">Telefone contato
+<input type="hidden" name="entry.1341745646" value="">Email alternativo
+<input type="hidden" name="entry.1349354248" value="">Nome e Sobrenome Acompanhante
+<input type="hidden" name="entry.806355275" value=""> Necessidades especiais
+<input type="hidden" name="entry.825114056" value=""> Endereço para correspondência
+<input type="hidden" name="entry.1664405540" value=""> CEP
+name="entry.1024493876_sentinel" - Campo confirmação presença
+-->

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beleza & Produção – Bal das Cabeças</title>
+
+  <style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.96);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #22111f 0, #050007 40%, #000 100%);
+      color: var(--branco);
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .beleza-page {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 28px;
+      padding: 26px 22px 32px;
+      background: radial-gradient(circle at top, rgba(245,196,81,0.08), rgba(5,0,7,0.98));
+      border: 1px solid rgba(245,196,81,0.35);
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beleza-page::before {
+      content: "";
+      position: absolute;
+      top: -35%;
+      right: -10%;
+      width: 220px;
+      height: 220%;
+      background: radial-gradient(circle, rgba(245,196,81,0.20), transparent 70%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .beleza-header {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .beleza-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+
+.voltar {
+      display: inline-flex;
+      align-items: right;
+      justify-content: right;
+      margin-left: 70%;
+      margin-bottom: 1%;
+      margin-right: 10%;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+.voltar:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  background: #f9f9f9;
+  color: #000;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 26, 2, 0.55);
+}    
+
+
+    .beleza-header h1 {
+      margin-top: 12px;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: var(--branco);
+      text-shadow: 0 0 16px rgba(0,0,0,0.9);
+    }
+
+    .beleza-header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .beleza-header h1::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      margin: 11px auto 0;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0.75;
+    }
+
+    /* GRUPOS DE SALÕES */
+
+    .salon-group {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      padding: 18px 16px 20px;
+      border-radius: 20px;
+      background: rgba(5,5,15,0.94);
+      border: 1px solid rgba(245,196,81,0.22);
+      box-shadow: 0 0 28px rgba(0,0,0,0.8);
+    }
+
+    .salon-group-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .salon-group-tag {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .salon-group h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--branco);
+    }
+
+    .salon-group-desc {
+      font-size: 13px;
+      color: var(--cinza);
+      max-width: 640px;
+    }
+
+    .salon-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .salon-card {
+      background: var(--cor-fundo-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 0 18px rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .salon-card-image {
+      position: relative;
+      overflow: hidden;
+      max-height: 180px;
+    }
+
+    .salon-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .salon-card:hover .salon-card-image img {
+      transform: scale(1.03);
+    }
+
+    .salon-card-body {
+      padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .salon-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .salon-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .salon-bairro {
+      font-size: 12px;
+      color: var(--cinza);
+    }
+
+    .salon-desc {
+      font-size: 12px;
+      color: var(--cinza);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .salon-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      background: linear-gradient(135deg, #f5c451, #b0831a);
+      color: #1a1305;
+      box-shadow: 0 0 16px rgba(245,196,81,0.65);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.15s ease;
+    }
+
+    .btn-link span {
+      margin-left: 6px;
+      font-size: 13px;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(245,196,81,0.9);
+      opacity: 0.95;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 768px) {
+      .beleza-page {
+        padding: 22px 14px 26px;
+        border-radius: 22px;
+      }
+
+      .beleza-header h1 {
+        font-size: 19px;
+        letter-spacing: 0.16em;
+      }
+
+      .salon-group {
+        padding: 16px 12px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="beleza-page">
+    <header class="beleza-header">
+      <div>
+          <a class="voltar-link" href="servicos.html" target="_blank"><span class="voltar">Voltar</span></a>
+      </div>
+      <span class="beleza-tag">Beleza & Produção</span>
+      <h1>Salões de Beleza · Zona Sul</h1>
+      <p>
+        Sugestões de salões na Zona Sul e próximos ao MAM para você se arrumar com calma
+        antes do Bal das Cabeças – cabelo, make e aquele carinho especial na produção.
+      </p>
+    </header>
+
+    <!-- PREMIUM – IPANEMA & LEBLON -->
+    <section class="salon-group" id="saloes-ipanema-leblon">
+      <div class="salon-group-header">
+        <span class="salon-group-tag">Ipanema & Leblon · Estilo premium</span>
+        <h2>Beleza com clima de cartão-postal</h2>
+        <p class="salon-group-desc">
+          Endereços sofisticados em Ipanema e Leblon, perfeitos para quem quer unir produção
+          impecável, ambiente elegante e a atmosfera mais charmosa da Zona Sul.
+        </p>
+      </div>
+
+      <div class="salon-grid">
+        <!-- Ipanema Fashion Hair -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Ipanema Fashion Hair.jpeg"
+                 alt="Fachada do salão Ipanema Fashion Hair">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Ipanema · Cabelo & make</span>
+            <h3 class="salon-name">Ipanema Fashion Hair</h3>
+            <p class="salon-bairro">Rua Visconde de Pirajá, Ipanema</p>
+            <p class="salon-desc">
+              Salão completo em plena Visconde de Pirajá, com foco em corte, cor, escova,
+              tratamentos capilares e maquiagem – aberto inclusive aos domingos.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://salaoipanema.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Care Body & Soul (Salão Care) -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Care Body&Soul Ipanema.webp"
+                 alt="Fachada do salão Care Body & Soul em Ipanema">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Ipanema · Experiência spa</span>
+            <h3 class="salon-name">Care Body &amp; Soul</h3>
+            <p class="salon-bairro">Rua Barão de Jaguaripe, Ipanema</p>
+            <p class="salon-desc">
+              Espaço de beleza e bem-estar com clima de spa urbano, ideal para quem quer
+              se arrumar e, de quebra, relaxar antes da festa.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://salaocare.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Jacques Janine Ipanema -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Jacques Janine Ipanema.jpg"
+                 alt="Fachada do salão Jacques Janine em Ipanema">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Ipanema · Rede consagrada</span>
+            <h3 class="salon-name">Jacques Janine – Ipanema</h3>
+            <p class="salon-bairro">Rua Vinícius de Moraes, Ipanema</p>
+            <p class="salon-desc">
+              Unidade carioca de uma das redes de beleza mais tradicionais do Brasil,
+              com serviços completos de cabelo, maquiagem e estética.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://jacquesjaninerj.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Crystal Hair Ipanema -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Crystal Hair Oficial Leblon.jpeg"
+                 alt="Fachada do salão Crystal Hair em Ipanema">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Ipanema · High-end</span>
+            <h3 class="salon-name">Crystal Hair – Ipanema</h3>
+            <p class="salon-bairro">Rua Barão de Jaguaripe, Ipanema</p>
+            <p class="salon-desc">
+              Salão moderno e sofisticado, com equipe especializada em cabelos, mãos, pés
+              e procedimentos estéticos, em endereço nobre de Ipanema.
+            </p>
+            <div class="salon-actions">
+              <!-- normalmente o acesso é pelo Instagram/site -->
+              <a class="btn-link"
+                 href="https://www.instagram.com/crystalhairoficial/"
+                 target="_blank" rel="noopener noreferrer">
+                Ver perfil <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COPACABANA -->
+    <section class="salon-group" id="saloes-copacabana">
+      <div class="salon-group-header">
+        <span class="salon-group-tag">Copacabana · Clássicos da Zona Sul</span>
+        <h2>Beleza entre mar e avenida</h2>
+        <p class="salon-group-desc">
+          Opções em Copacabana, perto de muitos dos hotéis sugeridos, perfeitas para quem
+          quer se arrumar sem se afastar da praia e da orla.
+        </p>
+      </div>
+
+      <div class="salon-grid">
+        <!-- Cello's Hair Studio -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Cello's Hair Studio Copacabana.jpeg"
+                 alt="Fachada do Cello's Hair Studio em Copacabana">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Copacabana · Salão completo</span>
+            <h3 class="salon-name">Cello's Hair Studio</h3>
+            <p class="salon-bairro">Copacabana</p>
+            <p class="salon-desc">
+              Salão focado em cabelo, unhas, sobrancelhas e estética, com proposta de
+              transformação completa em plena Zona Sul.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://celloshair.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Spazio di Bellezza – Copacabana -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Spazio di Belleza Copacabana.jpg"
+                 alt="Fachada do Spazio di Bellezza em Copacabana">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Copacabana · Spa urbano</span>
+            <h3 class="salon-name">Spazio di Bellezza</h3>
+            <p class="salon-bairro">Copacabana · Próximo ao metrô</p>
+            <p class="salon-desc">
+              Spa urbano no coração de Copacabana, ao lado do metrô Siqueira Campos,
+              com ambiente tranquilo em meio à agitação da cidade.
+            </p>
+            <div class="salon-actions">
+              <!-- o agendamento costuma ser via plataformas/telefone -->
+              <a class="btn-link"
+                 href="https://www.trinks.com/spazio-di-bellezza-mari-marchioro-"
+                 target="_blank" rel="noopener noreferrer">
+                Ver página <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Eduarda Rodrigues Salão de Beleza & Spa -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Eduarda Rodrigues Salao Copacabana.jpg"
+                 alt="Fachada do Eduarda Rodrigues Salão de Beleza & Spa">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Copacabana · Beleza & spa</span>
+            <h3 class="salon-name">Eduarda Rodrigues – Salão &amp; Spa</h3>
+            <p class="salon-bairro">Copacabana</p>
+            <p class="salon-desc">
+              Salão que reúne beleza, moda e estética para cabelo e pele, com proposta
+              de atendimento completo e ambiente aconchegante.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://eduardarodrigues.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- My Face Studio (estética facial) -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/My Face Studio Copacabana.jpeg"
+                 alt="Fachada do My Face Studio em Copacabana">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Copacabana · Estética facial</span>
+            <h3 class="salon-name">My Face Studio</h3>
+            <p class="salon-bairro">Rua Santa Clara, Copacabana</p>
+            <p class="salon-desc">
+              Estúdio especializado em estética facial, ideal para quem deseja cuidar da
+              pele, harmonizar contornos e chegar ao Bal com aquele glow.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://myfacestudio.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PERTO DO MAM – FLAMENGO & CATETE -->
+    <section class="salon-group" id="saloes-perto-mam">
+      <div class="salon-group-header">
+        <span class="salon-group-tag">Flamengo & Catete · Próximos ao MAM</span>
+        <h2>Pertinho do local do Bal</h2>
+        <p class="salon-group-desc">
+          Salões perto do Parque do Flamengo, ideais para quem prefere se arrumar
+          já na região do evento, com deslocamento rápido até o MAM.
+        </p>
+      </div>
+
+      <div class="salon-grid">
+        <!-- Kaha Salon Flamengo -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Kaha Salon Flamengo.png"
+                 alt="Fachada do Kaha Salon no Flamengo">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Flamengo · Cabelo & beleza</span>
+            <h3 class="salon-name">Kaha Salon</h3>
+            <p class="salon-bairro">Flamengo</p>
+            <p class="salon-desc">
+              Salão com foco em técnica e acolhimento, oferecendo serviços de cabelo
+              e beleza em uma região estratégica para o acesso ao MAM.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://www.instagram.com/kahasalon/"
+                 target="_blank" rel="noopener noreferrer">
+                Ver perfil <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Salão Iracema – Flamengo -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Salao Iracema Flamengo.jpeg"
+                 alt="Fachada do Salão Iracema no Flamengo">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Flamengo · Tradicional</span>
+            <h3 class="salon-name">Salão Iracema</h3>
+            <p class="salon-bairro">Rua Marquês de Abrantes, Flamengo</p>
+            <p class="salon-desc">
+              Salão tradicional do Flamengo, com serviços variados de beleza
+              em endereço cômodo para quem ficará nos hotéis da região.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://salaoiracema.com.br/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cor & Unha Flamengo -->
+        <article class="salon-card">
+          <div class="salon-card-image">
+            <img src="assets/Saloes/Cor&Unha Fashion Hair.jpg"
+                 alt="Fachada do Cor & Unha Flamengo">
+          </div>
+          <div class="salon-card-body">
+            <span class="salon-badge">Flamengo · Unhas & beleza</span>
+            <h3 class="salon-name">Cor &amp; Unha – Flamengo</h3>
+            <p class="salon-bairro">Rua Marquês de Abrantes, Flamengo</p>
+            <p class="salon-desc">
+              Espaço dedicado principalmente a mãos e pés, com serviços de manicure,
+              pedicure e cuidados estéticos, ótimo complemento à produção do Bal.
+            </p>
+            <div class="salon-actions">
+              <a class="btn-link"
+                 href="https://coreunha.com.br/unidades/flamengo/"
+                 target="_blank" rel="noopener noreferrer">
+                Site oficial <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

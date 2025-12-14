@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="theme-color" content="#FFD700" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="scripts/main.js"></script>
+    <title>Bal das Cabeças 2 - Geovanne60</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.9);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+
+    header {
+      border-bottom: 1px solid rgba(245, 196, 81, 0.25);
+      background: linear-gradient(
+          90deg,
+          rgba(229, 9, 20, 0.35),
+          rgba(245, 196, 81, 0.08),
+          rgba(229, 9, 20, 0.25)
+      );
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+
+    .topbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: var(--dourado);
+    }
+
+    .logo span {
+      color: var(--vermelho);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    .titulo-pagina {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .titulo-pagina h1 {
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dourado);
+      text-shadow: 0 0 18px rgba(245, 196, 81, 0.7);
+      margin-bottom: 8px;
+    }
+
+    .titulo-pagina p {
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    section {
+      margin-top: 28px;
+      padding: 18px 16px 20px;
+      background: var(--cor-fundo-card);
+      border-radius: 18px;
+      border: 1px solid rgba(245, 196, 81, 0.18);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.65);
+    }
+
+    section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--dourado);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    section p.descricao {
+      font-size: 13px;
+      color: var(--cinza);
+      margin-bottom: 14px;
+    }
+
+    /* vídeo destaque (arquivo local) */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+    }
+
+    /* YouTube responsivo */
+    .youtube-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .youtube-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* galeria de vídeos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .video-grid-item {
+      background: rgba(5, 5, 15, 0.9);
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+    }
+
+    .video-grid-item h3 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--dourado);
+    }
+
+    .video-grid-item p {
+      font-size: 11px;
+      color: var(--cinza);
+      margin-bottom: 6px;
+    }
+
+    .video-grid-item video,
+    .video-grid-item iframe {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* botões */
+    .botoes-linha {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    }
+
+    .btn-vermelho {
+      background: linear-gradient(135deg, #ff1b2d, #b00010);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
+    }
+
+    .btn-dourado {
+      background: linear-gradient(135deg, #f5c451, #b0831a);
+      color: #1a1305;
+      box-shadow: 0 0 18px rgba(245, 196, 81, 0.7);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn span {
+      margin-left: 6px;
+      font-size: 14px;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px 24px;
+      font-size: 11px;
+      color: var(--cinza);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+
+      .titulo-pagina h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+
+
+
+
+</head>
+
+<body>
+
+   <header class="cabecalho">
+        <img src="assets/6EC8FE7E-8037-4745-980E-F18C97F056FD_1_201_a.jpeg" alt="cabeças" width="15%">
+        <nav class="cabecalho__menu">
+          <a class="cabecalho__menu__link" href="inicio.html" target="_blank">Início</a>
+          <a class="cabecalho__menu__link" href="sobreoBal.html" target="_blank">Origem do Bal</a> 
+          <a class="cabecalho__menu__link" href="localEvento.html" target="_blank">Local do Evento</a>
+          <a class="cabecalho__menu__link" href="Balde50.html" target="_blank">O Bal de 50</a>
+          <a class="cabecalho__menu__link" href="linhaTempo.html" target="_blank">Sobre mim</a>
+          <a class="cabecalho__menu__link" href="dressCode.html" target="_blank">Dress Code</a>
+          <a class="cabecalho__menu__link" href="servicos.html" target="_blank">Serviços</a>
+          <a class="cabecalho__menu__link" href="listaPresentes.html" target="_blank">Presentes</a>        
+          <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
+        </nav>
+    
+    </header>
+
+    <main>
+
+      <h1>Minha Linha do Tempo</h1><br><br><br>
+
+      <h2>A vida é um baile de máscaras — e eu escolhi dançar com verdade, afeto e brilho nos olhos.</h2><br><br>
+
+
+<div class="card__linhatempo">
+      <div class="desc">
+      <h2>1966</h2> <br>
+      <p> Estreiei em Brasília, chegando ao mundo como o<strong> terceiro filho de uma família de 6</strong> e já celebrando de cabeça feita.</p>
+      </div>
+     
+      <img src="assets/Linha do Tempo/1 ano de cabeça feita.jpg" width="20%" height="auto" alt="">
+      <img src="assets/Linha do Tempo/B20DD7F1-2662-48E1-9B61-09A1F7ED89F4_1_102_o.jpeg" width="20%" height="auto" alt="">
+      
+</div>
+
+<div class="card__linhatempo">
+      <div class="desc">
+      <h2>1972</h2><br>
+      <p>Ainda criança, mostrava meu talento performático: adorava participar dos eventos da escola sempre
+de cabeça feita, com fantasia, alegria e desinibição.</p>
+      </div>
+      <img src="assets/Linha do Tempo/Infância 142-a.jpg" width="40%" height="auto" alt="">
+</div>
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1976</h2><br>
+      <p>Em 1976, realizei minha<strong> primeira comunhão</strong>, marcando um momento especial de fé, emoção e encontro
+com o sagrado, com direito a traje alinhado e gravatinha.</p>
+  </div>     
+      <img src="assets/Linha do Tempo/Primeira comunhão.jpg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1981</h2><br>
+      <p>Aos 15 anos já me joguei para o mundo. Fiz minha<strong> primeira viagem internacional</strong> com destino aos Estados Unidos. Conheci Nova York, Washington e
+vivi a magia da DisneyWorld, sempre com algo na cabeça.</p>
+  </div>
+      <img src="assets/Linha do Tempo/Disney 15 anos.jpg" width="30%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1982</h2><br>
+      <p><strong>Entrei na UnB para o curso de Geologia</strong>, uma escolha que refletia meu olhar
+atento para o mundo e minha vontade de entender as camadas da Terra e da vida.</p><br>
+      <p>Após 3 anos, decidi dar uma guinada na minha formação: prestei um novo vestibular para
+Economia, deixando Geologia e apostando em um caminho que uniria razão, visão e futuro.</p>
+  </div>
+      <img src="assets/Linha do Tempo/Formatura UnB.jpg" width="30%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1985</h2><br>
+      <p>Tive a sorte de estar presente em um dos momentos mais épicos da música, ao assistir ao vivo o
+<strong> show do Queen no primeiro Rock in Rio</strong>. Foram 5 dias de pura
+energia, lama e memória para a vida inteira.</p>
+        <br>
+
+        
+  </div>
+      <img src="assets/Linha do Tempo/RockinRio 1985.avif" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1987</h2><br>
+      <p>Iniciei minha <strong>carreira no Banco do Brasil</strong>. Ali construí uma trajetória sólida e inspiradora, cheia de
+desafios, aprendizados e contribuições, permanecendo até 2010. Acredito que fiz muitos amigos e deixei minha marca com
+competência, elegância e humanidade.</p>
+</div>
+<img src="assets/Linha do Tempo/BB RI.JPG" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1995</h2><br>
+      <p>Subi ao palco pela última vez como ator na peça <strong>Noises Off - Nos Bastidores da Comédia</strong>, encerrando
+um ciclo de vivência teatral com humor, entrega e presença de cena.</p>
+</div>
+<img src="assets/Linha do Tempo/Noises Off 01.jpg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>1996</h2><br>
+      <p>Conheci o <strong>Reinaldo, meu parceiro de vida e meu grande amor</strong>. Um encontro de almas que daria início a uma história de 30 anos de 
+cumplicidade, afeto, parceria e encantamento e que continua iluminando minha vida até hoje.</p>
+  </div>
+<img src="assets/Linha do Tempo/Eu e Reinaldo Cancun.jpg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2006</h2><br>
+      <p>Celebrei meus 40 anos com <strong> minha primeira festa Black Tie</strong>. Uma noite de elegância, estilo e brilho. Foi
+mais que um aniversário: foi o prenúncio artístico e sofisticado do que viria a ser o Bal das Cabeças.</p>
+</div>
+<img src="assets/Linha do Tempo/DSCF0248.jpg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2010</h2><br>
+      <p>Fui indicado pelo Banco do Brasil para atuar como <strong> Diretor de
+Participações da Previ</strong>, o maior fundo de pensão da América Latina. Tive que mudar para o Rio de Janeiro, onde iniciei um novo ciclo marcado
+por desafios estratégicos e contribuições históricas para o sistema de previdência complementar brasileiro.</p>
+  </div>
+      <img src="assets/Linha do Tempo/Posse Previ.jpeg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2015</h2><br>
+      <p>Um ano marcante! Eu e o Reinaldo oficializamos nossa união de 19 anos com um <strong>casamento em Nova Iorque, EUA</strong>.</p><br> 
+        <p>Também foi o ano em que me despedi da Previ e do Banco do Brasil, encerrando um ciclo de quase três décadas.</p><br> 
+        <p>Iniciei, então, uma nova jornada profissional no Bank of America, abraçando novos desafios, horizontes e 
+        fazendo novos amigos.</p>
+  </div>
+<img src="assets/Linha do Tempo/IMG_4449.jpeg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2016</h2><br>
+      <p>Celebrei meus 50 anos em grande estilo com o primeiro <strong>Bal das Cabeças</strong>! Uma noite memorável,
+vibrante e cheia de significado, reunindo amigos queridos, brilho, arte e irreverência: uma verdadeira
+celebração da vida com muito amor e originalidade.</p>
+</div>
+      <img src="assets/Linha do Tempo/IMG_7858.jpeg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2018</h2><br>
+      <p>Reconhecimento Global! Fui agraciado com o <strong>Diversity & Inclusion Award</strong> do Bank of
+America, em reconhecimento à minha atuação na liderança de iniciativas de diversidade e inclusão no
+Brasil. Um marco de orgulho em minha trajetória profissional e pessoal.</p>
+  </div>
+      <img src="assets/Linha do Tempo/IMG_3001.jpeg" width="40%" height="auto" alt="">  
+</div>
+
+
+<div class="card__linhatempo">
+  <div class="desc">
+      <h2>2023</h2><br>
+      <p>Após 13 anos, retornei ao Banco do Brasil para assumir a Vice-Presidência de Finanças e Relações com Investidores (CFO), 
+        a convite da presidente Tarciana Medeiros. Um novo ciclo de desafios e realizações na instituição onde iniciei minha carreira em 1987.</p>
+  </div>
+      <img src="assets/Linha do Tempo/PHOTO-2025-11-23-12-12-01.jpg" width="40%" height="auto" alt="">  
+</div>
+
+
+
+
+
+    </main>
+
+    
+</body>
+
+
+
+</html>

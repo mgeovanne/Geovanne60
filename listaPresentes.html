@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/main.js"></script>
+  <title>Bal das Cabeças 2 - Geovanne60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.9);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+ header {
+      border-bottom: 1px solid rgba(245, 196, 81, 0.25);
+      background: linear-gradient(
+          90deg,
+          rgba(229, 9, 20, 0.35),
+          rgba(245, 196, 81, 0.08),
+          rgba(229, 9, 20, 0.25)
+      );
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    }
+<!--/* CONTAINER DA GALERIA */-->
+
+
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;              <!--/* permite que quebrem linha */-->
+  justify-content: center;      <!--/* centraliza os itens */-->
+  gap: 1.5rem;                  <!--/* espaçamento entre os cards */-->
+  margin: 0;
+  padding: 0;
+}
+
+<!--/* CADA ITEM DA GALERIA */-->
+
+div.gallery-item {
+  border: 2px dotted rgba(245,196,81,0.35);
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  border-radius: 1rem;
+  padding: 2%;
+ <!-- /* width: 200%;  <-- removido */
+  
+  /* Faz o card se adaptar:
+     - base de ~280px
+     - cresce até um limite confortável
+  */-->
+
+  flex: 1 1 calc(33.3% - 1.5rem);
+  max-width: calc(33.3% - 1.5rem);
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+  color:white;
+}
+
+<!--/* IMAGENS DENTRO DO CARD */-->
+div.gallery-item img {
+  width: 100%;       /* ocupa toda a largura do card */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+<!--/* DESCRIÇÃO */-->
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: left;
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+}
+.desc h4 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.desc h3 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.desc h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.desc p {
+  font-size: 1rem;
+  color: var(white);
+  margin-top: 10px;
+  text-align: justify;
+}
+
+
+.gallery-item:hover{
+  background-color: var(--background-secondary-color);
+  transition-duration: 2s;
+  transform: scale(1.1);
+  color: white;
+
+}
+
+<!--/* ====== RESPONSIVIDADE ====== */
+
+/* TABLET: reduz um pouco o limite máximo do card, se quiser */-->
+
+@media (max-width: 768px) {
+  div.gallery-item {
+    max-width: 320px;
+  }
+}
+
+<!--/* CELULAR: cards quase 100% da largura, um embaixo do outro */-->
+
+@media (max-width: 480px) {
+  div.gallery {
+    justify-content: center;
+  }
+
+  div.gallery-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  div.gallery-item img {
+    width: 100%;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="assets/6EC8FE7E-8037-4745-980E-F18C97F056FD_1_201_a.jpeg" alt="cabeças" width="15%">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="inicio.html" target="_blank">Início</a>
+            <a class="cabecalho__menu__link" href="sobreoBal.html" target="_blank">Origem do Bal</a> 
+            <a class="cabecalho__menu__link" href="localEvento.html" target="_blank">Local do Evento</a>
+            <a class="cabecalho__menu__link" href="Balde50.html" target="_blank">O Bal de 50</a>
+            <a class="cabecalho__menu__link" href="linhaTempo.html" target="_blank">Sobre mim</a>
+            <a class="cabecalho__menu__link" href="dressCode.html" target="_blank">Dress Code</a>
+            <a class="cabecalho__menu__link" href="servicos.html" target="_blank">Serviços</a>
+            <a class="cabecalho__menu__link" href="listaPresentes.html" target="_blank">Presentes</a>        
+            <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
+        </nav>
+        
+    </header>
+
+<main>
+    <h1>Bal das Cabeças</h1><br><br>
+    <h4>Geovanne60</h4><br><br>
+
+
+
+
+<div class="gallery">
+
+    <div class="gallery-item">
+        <a target="_blank" href="https://www.hcb.org.br/doacoes/">
+          <div class="video-grid-item">
+              <video controls>
+                <source src="assets/Doacoes/HCB Brasília.mp4" type="video/mp4">
+              </video>
+          </div>
+        </a>
+            <div class="desc"><h4>HCB - Hospital da Criança de Brasília</h4>
+                <a target="_blank" href="https://www.hcb.org.br/doacoes/">                  
+                  <h4>PIX 10.942.995/0001-63</h4>
+                  <p> O HCB – Hospital da Criança de Brasília  é gerido  pelo ICIPE  – Instituto do Câncer Infantil e 
+                    Pediatria Especializada, em parceria com o Governo do Distrito Federal.<br><br>
+                    O HCB atende (pelo SUS) pacientes com doenças raras e complexas do DF e das regiões Norte, Nordeste e Centro Oeste.<br><br> 
+                    O hospital  foi construído pela ABRACE - Instituição Filantrópica que assiste Crianças e Adolescentes 
+                    com Câncer em Brasília, com  objetivo de garantir mais qualidade no tratamento no DF. <br><br>
+                    O HCB é um exemplo de sucesso de parceria entre o setor público  
+                    e a sociedade civil, demonstrando que é possível prestar saúde pública de qualidade com o envolvimento da comunidade.</p>
+                </a>
+            </div>       
+    </div>
+
+    <div class="gallery-item">
+          <a target="_blank" href="https://retirodosartistas.org.br/index.php/doacoes/">
+              <img src="assets/Doacoes/Retiro dos Artistas.png" alt="Retiro dos Artistas" width="600" height="400">
+          </a>
+        <div class="desc"><h4>Retiro dos Artistas</h4>
+            <a target="_blank" href="https://retirodosartistas.org.br/index.php/doacoes/">
+              <h4>PIX 49.595.936/0001-00</h4>
+              <p>O Retiro dos Artistas, localizado em Jacarepaguá, no Rio de Janeiro, é uma instituição de longa permanência 
+                para idosos que oferece moradia e suporte a profissionais do entretenimento aposentados e em vulnerabilidade.<br><br>
+                Fundado em 1918, o local abriga artistas de diversas áreas, como atores, músicos e figurinistas, e conta com estrutura de lazer, 
+                atividades culturais e serviços de saúde, como fisioterapia e cuidados de beleza. <br><br>
+                A instituição sobrevive de doações em dinheiro, objetos, alimentos e trabalho voluntário. 
+<p>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="gallery-item">
+        <a target="_blank" href="https://ceallp.org.br/seja-um-apoiador/#doacao">
+        <img src="assets/Doacoes/CEAL - DF.webp" alt="CEAL DF" width="600" height="400"></a>
+    
+        <div class="desc"><h4>CEAL-LP</h4>
+            <a target="_blank" href="https://ceallp.org.br/seja-um-apoiador/#doacao">
+                <h4>PIX 62.382.395/0006-04</h4>
+                <p>O Centro Educacional da Audição e Linguagem Ludovico Pavoni 
+                (CEAL-LP) é uma instituição filantrópica que atua há mais de 50 anos na reabilitação de pessoas com deficiência auditiva, 
+                intelectual e Transtorno do Espectro Autista (TEA) no Distrito Federal.<br><br>
+                Em 2024, o CEAL-LP celebrou 50 anos de serviços prestados à comunidade do DF.</p>
+            </a>
+        </div>
+    </div>
+
+        
+
+</div>
+
+
+
+
+
+
+
+</main>
+
+  <footer class="rodape">
+      <p><span>#baldascabeças</span></p>
+      <p><span>#geovanne60</span></p>
+  </footer>
+
+
+</body>
+
+</html>
+
+
+
+

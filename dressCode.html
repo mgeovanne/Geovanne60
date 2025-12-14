@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dress Code – Bal das Cabeças</title>
+
+  <style>
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.96);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+ header {
+      border-bottom: 1px solid rgba(245, 196, 81, 0.25);
+      background: linear-gradient(
+          90deg,
+          rgba(229, 9, 20, 0.35),
+          rgba(245, 196, 81, 0.08),
+          rgba(229, 9, 20, 0.25)
+      );
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin-top: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+   
+    body {
+     min-height: 100vh;
+      background: radial-gradient(circle at top, #22111f 0, #050007 40%, #000 100%);
+      color: var(--branco);
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dress-page {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 28px;
+      padding: 26px 22px 34px;
+      background: radial-gradient(circle at top, rgba(245,196,81,0.08), rgba(5,0,7,0.98));
+      border: 2px dotted rgba(245,196,81,0.35);
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dress-page::before {
+      content: "";
+      position: absolute;
+      top: -35%;
+      right: -10%;
+      width: 220px;
+      height: 220%;
+      background: radial-gradient(circle, rgba(245,196,81,0.22), transparent 70%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .dress-header {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dress-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+.voltar {
+      display: inline-flex;
+      align-items: right;
+      justify-content: right;
+      margin-left: 70%;
+      margin-bottom: 1%;
+      margin-right: 0%;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+    }
+
+.voltar:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  background: #f9f9f9;
+  color: #000;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 26, 2, 0.55);
+}    
+
+    .dress-header h1 {
+      margin-top: 12px;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: var(--branco);
+      text-shadow: 0 0 16px rgba(0,0,0,0.9);
+    }
+
+    .dress-header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .dress-header h1::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      margin: 11px auto 0;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0.75;
+    }
+
+    /* GRUPOS */
+
+    .dress-group {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      padding: 18px 16px 20px;
+      border-radius: 20px;
+      background: rgba(5,5,15,0.94);
+      border: 1px solid rgba(245,196,81,0.22);
+      box-shadow: 0 0 28px rgba(0,0,0,0.8);
+    }
+
+    .dress-group-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .dress-group-tag {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .dress-group h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--branco);
+    }
+
+    .dress-group-desc {
+      font-size: 13px;
+      color: var(--cinza);
+      max-width: 680px;
+    }
+
+    .dress-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .dress-card {
+      background: var(--cor-fundo-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 0 18px rgba(0,0,0,0.85);
+      display: flex
+      flex-direction: column;
+      min-height: 100%;
+      align-items: center;
+    }
+
+    .dress-card-image {
+      position:relative;
+      overflow: hidden;
+      max-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+            
+    }
+
+    .dress-card-image img {;
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+     
+            
+    }
+
+    .dress-card:hover .dress-card-image img {
+      transform: scale(1.04);
+    }
+
+
+    
+    .dress-card-body {
+      padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .dress-card:hover{
+      transform: scale(1.5);
+      transition: 2s;
+    }
+    .dress-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dourado);
+      opacity: 0.9;
+    }
+
+    .dress-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .dress-text {
+      font-size: 12px;
+      color: var(--cinza);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .dress-list {
+      margin-top: 6px;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--cinza);
+    }
+
+    .dress-list li {
+      margin-bottom: 3px;
+    }
+
+    .dress-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--cinza);
+      opacity: 0.9;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 768px) {
+      .dress-page {
+        padding: 22px 14px 26px;
+        border-radius: 22px;
+      }
+
+      .dress-header h1 {
+        font-size: 19px;
+        letter-spacing: 0.16em;
+      }
+
+      .dress-group {
+        padding: 16px 12px 18px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  
+
+    <main class="dress-page">
+      <header class="dress-header">
+        <div>
+          <a class="voltar-link" href="inicio.html" target="_blank"><span class="voltar">Voltar</span></a>
+        </div>
+        <span class="dress-tag">Dress Code · Bal das Cabeças</span>
+        <h1>Black Tie & Cabeças</h1>
+        <p>
+          Uma noite de gala pede produções à altura: smoking, vestidos longos e adereços de cabeça
+          à la Bal das Cabeças – sofisticados, modernos e um toque surrealista.
+        </p>
+        
+      </header>
+
+      
+
+    <!-- BLACK TIE / TUXEDO -->
+    <section class="dress-group" id="black-tie">
+      <div class="dress-group-header">
+        <span class="dress-group-tag">Traje masculino · Black tie / tuxedo</span>
+        <h2>Smoking, gravata borboleta & brilho discreto</h2>
+        <p class="dress-group-desc">
+          A proposta é o clássico **black tie** reinterpretado: elegante, bem cortado e com
+          liberdade para pequenos toques de personalidade – desde o tecido até os acessórios.
+        </p>
+      </div>
+
+      <div class="dress-grid">
+        <!-- Smoking clássico -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Smoking Clássico.jpg"
+                 alt="Smoking preto clássico com gravata borboleta e camisa branca">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 1</span>
+            <h3 class="dress-name">Smoking preto clássico</h3>
+            <p class="dress-text">
+              O combo infalível: paletó de smoking preto com lapela em seda, calça reta,
+              camisa branca de peito engomado, faixa ou colete e gravata borboleta preta.
+              Sapatos de verniz ou bem lustrados completam o visual.
+            </p>
+            <ul class="dress-list">
+              <li>Paletó de smoking com lapela acetinada</li>
+              <li>Camisa branca clássica</li>
+              <li>Gravata borboleta preta</li>
+              <li>Sapatos sociais pretos (verniz ou couro liso)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Smoking com toque moderno -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Smoking texturizado.jpg"
+                 alt="Tuxedo em veludo escuro com gravata borboleta">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 2</span>
+            <h3 class="dress-name">Tuxedo com toque moderno</h3>
+            <p class="dress-text">
+              Para quem gosta de ousar com elegância: blazer em veludo preto, azul
+              profundo ou vinho, lapelas marcadas e corte ajustado. A base continua
+              classuda, mas com textura e presença.
+            </p>
+            <ul class="dress-list">
+              <li>Blazer em veludo ou tecido texturizado</li>
+              <li>Gravata borboleta ou laço slim</li>
+              <li>Relógio discreto e abotoaduras</li>
+              <li>Meias escuras (sem esportivas, por favor!)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Black tie criativo -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Smoking criativo.jpg"
+                 alt="Smoking criativo com detalhes em dourado e lenço de bolso">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 3</span>
+            <h3 class="dress-name">Black tie criativo</h3>
+            <p class="dress-text">
+              Quem quiser entrar no espírito do Bal pode adicionar detalhes em dourado
+              ou vermelho vinho – no lenço de bolso, nos botões, no colete ou mesmo em
+              um sapato levemente diferenciado, sem perder a formalidade.
+            </p>
+            <ul class="dress-list">
+              <li>Detalhes em dourado, vinho ou bordô</li>
+              <li>Lenço de bolso marcante</li>
+              <li>Alfinete de gravata, broches ou abotoaduras especiais</li>
+            </ul>
+            <p class="dress-note">
+              *Regra de ouro: a base é sempre formal. O toque criativo vem nos detalhes.*
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VESTIDOS LONGOS -->
+    <section class="dress-group" id="vestidos-longos">
+      <div class="dress-group-header">
+        <span class="dress-group-tag">Traje feminino · Vestidos longos</span>
+        <h2>Silhuetas dramáticas & brilho elegante</h2>
+        <p class="dress-group-desc">
+          Vestidos longos são o coração do dress code: fluidos, estruturados, minimalistas
+          ou cheios de brilho – desde que tragam clima de gala e liberdade para dançar.
+        </p>
+      </div>
+
+      <div class="dress-grid">
+        <!-- Longo preto clássico -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Longo preto elegante.jpg"
+                 alt="Vestido longo preto elegante">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 1</span>
+            <h3 class="dress-name">Longo preto eterno</h3>
+            <p class="dress-text">
+              O verdadeiro pretinho nada básico: vestido longo preto em corte reto,
+              sereia ou fluido, com decote controlado ou costas em destaque.
+              Acessórios em dourado ou pedrarias completam o visual.
+            </p>
+            <ul class="dress-list">
+              <li>Vestido preto longo (liso ou com textura)</li>
+              <li>Sandálias ou scarpins metálicos</li>
+              <li>Brincos ou colar como ponto de luz</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Longo metalizado / dourado -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Longo dourado metalizado.jpg"
+                 alt="Vestido longo dourado metalizado">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 2</span>
+            <h3 class="dress-name">Dourado & glow</h3>
+            <p class="dress-text">
+              Vestidos em dourado, champagne ou tons metalizados conversam diretamente
+              com o clima do Bal: festa, brilho e sofisticação. Fendas, recortes ou
+              drapeados são bem-vindos.
+            </p>
+            <ul class="dress-list">
+              <li>Tons dourados, champagne, bronze ou metalizados</li>
+              <li>Make iluminada e pele glow</li>
+              <li>Clutch pequena (de mão) para acompanhar</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Tons de vermelho / vinho -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Longo vermelho elegante.jpg"
+                 alt="Vestido longo vermelho elegante">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Sugestão 3</span>
+            <h3 class="dress-name">Vermelho, vinho & drama</h3>
+            <p class="dress-text">
+              Vermelhos profundos, borgonha e tons de vinho trazem intensidade e
+              presença. Valem modelos mais minimalistas com foco na cor, ou recortes
+              geométricos para quem quer um ar contemporâneo.
+            </p>
+            <ul class="dress-list">
+              <li>Cores: vermelho escuro, bordô, vinho</li>
+              <li>Brincos marcantes ou tiaras delicadas</li>
+              <li>Cabelos presos, semipresos ou ondas soltas de festa</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CABEÇAS – ADEREÇOS -->
+    <section class="dress-group" id="cabecas">
+      <div class="dress-group-header">
+        <span class="dress-group-tag">Bal das Cabeças · Adereços</span>
+        <h2>Cabeças sofisticadas, modernas & surrealistas</h2>
+        <p class="dress-group-desc">
+          Aqui a imaginação é protagonista: adereços de cabeça inspirados em arte,
+          escultura e fantasia elegante. Pense em peças que conversem com o black tie,
+          mas que tenham a liberdade criativa do Bal das Cabeças.
+        </p>
+      </div>
+
+      <div class="dress-grid">
+        <!-- Fascinators esculturais -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/fascinator escultural.jpg"
+                 alt="Fascinator escultural em tons de preto e dourado">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia 1</span>
+            <h3 class="dress-name">Fascinators esculturais</h3>
+            <p class="dress-text">
+              Pequenas esculturas de tecido, tule, plumas discretas ou metal, fixadas
+              lateralmente na cabeça. Podem seguir a paleta preto, dourado, vermelho ou
+              trazer uma cor-surpresa para destacar a produção.
+            </p>
+            <ul class="dress-list">
+              <li>Base pequena com volume arquitetônico</li>
+              <li>Tule, penas delicadas, aplicações metálicas</li>
+              <li>Ótimo para cabelos presos ou semipresos</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Tiaras statement -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Coroa em pedras.jpg"
+                 alt="Tiara metálica moderna em tom dourado">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia 2</span>
+            <h3 class="dress-name">Tiaras metálicas & coroas minimalistas</h3>
+            <p class="dress-text">
+              Tiaras e coroas minimalistas em metal, cristais ou pedrarias que criam
+              uma linha gráfica sobre a cabeça – quase como um halo moderno.
+              Combinam muito bem com coques, rabos de cavalo altos e cabelos soltos
+              bem alinhados.
+            </p>
+            <ul class="dress-list">
+              <li>Metais em dourado, prata, preto ou mix</li>
+              <li>Formas geométricas, linhas e arcos</li>
+              <li>Estilo “deusa urbana” ou “realeza futurista”</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Surrealismo elegante -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Fascinator surrealista.jpg"
+                 alt="Headpiece surrealista com formas artísticas">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia 3</span>
+            <h3 class="dress-name">Surrealismo elegante</h3>
+            <p class="dress-text">
+              Peças que parecem ter saído de uma obra de arte: estruturas assimétricas,
+              elementos que flutuam sobre a cabeça, olhos estilizados, estrelas,
+              formas orgânicas ou geométricas – sempre com acabamento fino.
+            </p>
+            <ul class="dress-list">
+              <li>Formas inesperadas e conceito artístico</li>
+              <li>Cores em sintonia com o look ou em contraste calculado</li>
+              <li>Equilíbrio entre fantasia e sofisticação</li>
+            </ul>
+            <p class="dress-note">
+              *Ideia: pense na “cabeça” como a parte mais artística do look –
+              o corpo segue o dress code, a cabeça conta a história.*
+            </p>
+          </div>
+        </article>
+
+        <!-- Versão elegante para convidados discretos -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Minimal Chic.jpg"
+                 alt="Adereço de cabeça minimalista e elegante">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia 4</span>
+            <h3 class="dress-name">Minimal chic para tímidos</h3>
+            <p class="dress-text">
+              Para quem prefere algo mais sutil: presilhas com pedrarias, pequenos
+              enfeites metálicos, grampos decorados ou faixas finas. A cabeça está
+              “no tema”, mas com delicadeza.
+            </p>
+            <ul class="dress-list">
+              <li>Presilhas, grampos ou faixas em dourado, preto ou vermelho</li>
+              <li>Aplicações de cristais, pérolas ou pequenos símbolos</li>
+              <li>Perfeito para quem quer elegância sem muita fantasia</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+        <!-- CABEÇAS – ADEREÇOS (MASCULINOS) -->
+    <section class="dress-group" id="cabecas">
+      <div class="dress-group-header">
+        <span class="dress-group-tag">Bal das Cabeças · Adereços</span>
+        <h2>Cabeças sofisticadas, modernas & surrealistas</h2>
+        <p class="dress-group-desc">
+          O dress code do Bal também passa pela cabeça: fascinators, tiaras, cartolas,
+          chapéus, estruturas esculturais e elementos surrealistas que transformam cada
+          convidado em parte viva da cenografia.
+        </p>
+      </div>
+
+      <div class="dress-grid">
+      
+        <!-- Cartola & chapéu alto (masculino) -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Cartola decorada.jpg"
+                 alt="Cartola preta clássica combinando com smoking">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia masculina</span>
+            <h3 class="dress-name">Cartolas & chapéus altos</h3>
+            <p class="dress-text">
+              Cartolas pretas ou em veludo, com fitas em preto, dourado ou vinho,
+              criam um diálogo direto com o black tie e remetem a bailes clássicos,
+              porém com personalidade e presença.
+            </p>
+            <ul class="dress-list">
+              <li>Cartola preta lisa ou com faixa em dourado/vinho</li>
+              <li>Possível aplicação discreta de penas, broches ou símbolos</li>
+              <li>Ideal com smoking clássico ou black tie criativo</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Chapéu fedora / aba média (masculino) -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Fedora masculina.jpg"
+                 alt="Chapéu fedora escuro com faixa contrastante">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia masculina</span>
+            <h3 class="dress-name">Fedoras & chapéus de aba média</h3>
+            <p class="dress-text">
+              Chapéus de aba média em feltro ou veludo, em preto, grafite, azul
+              profundo ou vinho. A graça está na faixa: metálica, de cetim ou com
+              pequenos detalhes gráficos.
+            </p>
+            <ul class="dress-list">
+              <li>Cores escuras, em sintonia com o terno</li>
+              <li>Faixas em seda, cetim ou tecido texturizado</li>
+              <li>Podem acompanhar óculos de armação fina para um ar film noir</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Máscaras, meio rosto & visores conceituais (masc/unissex) -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Máscara masculina.jpg"
+                 alt="Máscara meia-face masculina em estilo elegante">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia masculina / unissex</span>
+            <h3 class="dress-name">Máscaras elegantes & visores conceituais</h3>
+            <p class="dress-text">
+              Máscaras meia-face, visores translúcidos, estruturas que cobrem parte
+              do rosto ou dos olhos, sempre em materiais nobres: metal, resina,
+              acrílico fosco, couro fino ou tecidos estruturados.
+            </p>
+            <ul class="dress-list">
+              <li>Formas limpas, sem aparência de fantasia infantil</li>
+              <li>Acabamento em preto, dourado, vinho ou prata envelhecida</li>
+              <li>Compatíveis com óculos de grau ou lentes de contato</li>
+            </ul>
+            <p class="dress-note">
+              *Perfeito para quem quer entrar no clima surrealista mantendo o terninho
+              impecável.*
+            </p>
+          </div>
+        </article>
+
+        <!-- Cabeças criativas (masc/unissex) -->
+        <article class="dress-card">
+          <div class="dress-card-image">
+            <img src="assets/Dress code/Cabeça masculina coroa penas.jpg"
+                 alt="Cabeças masculinas criativas">
+          </div>
+          <div class="dress-card-body">
+            <span class="dress-badge">Ideia masculina / unissex</span>
+            <h3 class="dress-name">Adornos criativos e modernos</h3>
+            <p class="dress-text">
+              Montar a cabeça com criatividade e irreverência com adornos elegantes e diferentes elevam 
+              o figurino black-tie a um nível surreal. Estruturas leves com penas, pedrarias, resinas,               
+              ou acrílico fosco ou tecidos estruturados.
+            </p>
+            <ul class="dress-list">
+              <li>Formas inesperadas e conceito artístico</li>
+              <li>Cores em sintonia com o look ou em contraste calculado</li>
+              <li>Equilíbrio entre fantasia e sofisticação</li>
+            </ul>
+            <p class="dress-note">
+              *Perfeito para quem quer entrar no clima surrealista mantendo a elegância do Black-tie.*
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

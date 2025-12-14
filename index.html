@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/main.js"></script>
+  <title>Geovanne60</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: "MozartScript-Regular";
+      src: url(../Fontes/MozartScript-Regular.ttf);
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Champagne-&-Limousines";
+      src: url(../Fontes/Champagne-&-Limousines.ttf);
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --cor-fundo: #050007;
+      --cor-fundo-card: rgba(10, 10, 20, 0.9);
+      --dourado: #f5c451;
+      --vermelho: #e50914;
+      --branco: #f9f9f9;
+      --cinza: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Comfortaa", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #22111f 0, #050007 40%, #000000 100%);
+      color: var(--branco);
+      min-height: 100vh;
+    }
+
+    /* WRAPPER GERAL */
+    .tela-inicial {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 16px 40px;
+    }
+
+    /* HEADER / HERO */
+    .inicio {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .brinde {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 16px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .brinde__texto {
+      flex: 1.2;
+    }
+
+    .brinde__texto h3 {
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cinza);
+      margin-bottom: 5%;
+        }
+
+    .brinde__texto h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-family: 'MozartScript-Regular', cursive;
+      text-shadow: 3px 3px #e50914;
+      line-height: 1.1;
+    }
+
+    .brinde__texto h4 {
+      font-size: 3.5rem;
+      margin: 0.3rem 0 0;
+      font-family: 'Champagne-&-Limousines', cursive;
+      text-shadow: 1.5px 1.5px #e50914;
+    }
+
+    .brinde__sub {
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 360px;
+      margin-left: 20rem;
+    }
+
+    .entrada__imagem {
+      flex: 1;
+      max-width: 360px;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+    }
+
+    /* COUNTDOWN */
+    .container-countdown {
+      margin-top: 1.8rem;
+    }
+
+    .countdown-titulo {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cinza);
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .countdown-titulo span strong {
+      color: var(--dourado);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .countdown .unit {
+      min-width: 64px;
+      padding: 6px 4px;
+      border-radius: 12px;
+      border: 3px solid rgba(245, 196, 81, 0.35);
+      background: radial-gradient(circle, rgba(245, 196, 81, 0.08), rgba(0, 0, 0, 0.9));
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
+      text-align: center;
+    }
+
+    .countdown .unit span.valor {
+      display: flex;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dourado);
+    }
+
+    .countdown .unit span.label {
+      display: flex;
+      justify-content: center;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cinza);
+      margin-top: 2px;
+    }
+
+    /* MAIN / CONTROLES ABAIXO DO HERO */
+    .abertura {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .controles {
+      margin-left: 10%;
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+     /* align-items: center;*/
+      gap: 16px;
+    }
+
+    section.bloco {
+      width: 100%;
+      padding: 18px 16px 20px;
+      background: var(--cor-fundo-card);
+      border-radius: 18px;
+      border: 1px solid rgba(245, 196, 81, 0.18);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.65);
+    }
+
+    /* BOTÕES PRINCIPAIS */
+    .botoes-linha {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-vermelho {
+      background: linear-gradient(135deg, #ff1b2d, #b00010);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
+    }
+
+    .btn-dourado {
+      background: linear-gradient(135deg, #f5c451, #b0831a);
+      color: #1a1305;
+      box-shadow: 0 0 18px rgba(245, 196, 81, 0.7);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn span {
+      margin-left: 6px;
+      font-size: 16px;
+    }
+
+    /* CONTROLE DE ÁUDIO */
+    .button__audio {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.55);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(0,0,0,0.6);
+      max-width: 420px;
+      margin-inline: auto;
+    }
+
+    .button__audio-label {
+      flex: 1;
+      text-align: left;
+    }
+
+    .button__audio-controles {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,196,81,0.8);
+      background: radial-gradient(circle, rgba(245,196,81,0.12), rgba(0,0,0,0.9));
+      color: var(--dourado);
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-icon:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(0,0,0,0.9);
+      background: radial-gradient(circle, rgba(245,196,81,0.22), rgba(0,0,0,0.9));
+    }
+
+    /* FOOTER (se precisar) */
+    footer {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      padding: 10px 20px 24px;
+      font-size: 11px;
+      color: var(--cinza);
+      text-align: center;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .brinde {
+        gap: 24px;
+      }
+
+      .brinde__texto h1 {
+        font-size: 3.2rem;
+      }
+
+      .brinde__texto h4 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tela-inicial {
+        padding-top: 16px;
+      }
+
+      .brinde {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .brinde__texto {
+        order: 1;
+      }
+
+      .entrada__imagem {
+        order: 2;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .countdown {
+        justify-content: center;
+      }
+
+      .brinde__texto h1 {
+        font-size: 2.6rem;
+      }
+
+      .brinde__texto h4 {
+        font-size: 2.2rem;
+      }
+
+      .button__audio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .button__audio-label {
+        text-align: center;
+      }
+
+      .controles {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tela-inicial">
+    <!-- HERO / HEADER -->
+    <header class="inicio">
+      <section class="brinde">
+        <div class="brinde__texto">
+          <h3>Sejam bem-vindos ao</h3><br><br>
+          <h1>Bal das Cabeças</h1>
+          <h4>Geovanne60</h4>
+
+          <p class="brinde__sub">
+            Uma noite para celebrar histórias, encontros e cabeças brilhantes.
+          </p>
+
+          <!-- COUNTDOWN -->
+          <div class="container-countdown">
+            <div class="countdown-titulo">
+              <span><strong></strong>Contagem regressiva</strong></span>
+            </div>
+            <div class="countdown">
+              <div class="unit">
+                <span id="dias" class="valor">00</span>
+                <span class="label">Dias</span>
+              </div>
+              <div class="unit">
+                <span id="horas" class="valor">00</span>
+                <span class="label">Horas</span>
+              </div>
+              <div class="unit">
+                <span id="minutos" class="valor">00</span>
+                <span class="label">Min</span>
+              </div>
+              <div class="unit">
+                <span id="segundos" class="valor">00</span>
+                <span class="label">Seg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IMAGEM -->
+        <img class="entrada__imagem"
+             src="assets/CC1A587A-1E27-4DF2-87A8-3F5821831B8B.png"
+             alt="Foto brinde boas-vindas">
+      </section>
+    </header>
+
+    <!-- ÁUDIO ÚNICO -->
+    <audio id="meuAudio" src="audio/Crazy.mp3"></audio>
+
+    <!-- MAIN / CONTROLES CENTRAIS -->
+    <main class="abertura">
+      <section class="bloco">
+        <div class="controles">
+          <!-- Botão principal: entrar na festa -->
+          <div class="botoes-linha">
+            <a class="btn btn-dourado" href="inicio.html" onclick="playaud()">
+              Entrar na Festa <span>&#x25B6;</span>
+            </a>
+          </div>
+
+          <!-- Controle de áudio -->
+          <div class="button__audio">
+            <span class="button__audio-label">
+              Trilha sonora · Crazy (teaser do Bal)
+            </span>
+            <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Bal das Cabeças 2 – Geovanne60 · 2026
+    </footer>
+  </div>
+
+  <!-- SCRIPTS: COUNTDOWN + ÁUDIO -->
+  <script>
+    // ===== COUNTDOWN =====
+    const dataFesta = new Date("2026-03-21T21:03:00-03:00").getTime();
+
+    function atualizarCountdown() {
+      const agora = new Date().getTime();
+      const distancia = dataFesta - agora;
+
+      const diasElem = document.getElementById("dias");
+      const horasElem = document.getElementById("horas");
+      const minutosElem = document.getElementById("minutos");
+      const segundosElem = document.getElementById("segundos");
+      const tituloElem = document.querySelector(".countdown-titulo");
+
+      if (distancia <= 0) {
+        diasElem.textContent = "00";
+        horasElem.textContent = "00";
+        minutosElem.textContent = "00";
+        segundosElem.textContent = "00";
+        if (tituloElem) {
+          tituloElem.textContent = "A festa começou! Entre e aproveite!";
+        }
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      diasElem.textContent     = String(dias).padStart(2, "0");
+      horasElem.textContent    = String(horas).padStart(2, "0");
+      minutosElem.textContent  = String(minutos).padStart(2, "0");
+      segundosElem.textContent = String(segundos).padStart(2, "0");
+    }
+
+    atualizarCountdown();
+    setInterval(atualizarCountdown, 1000);
+
+    // ===== ÁUDIO =====
+    const audio = document.getElementById("meuAudio");
+
+    function playaud() {
+      if (audio) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    function pauseaud() {
+      if (audio) {
+        audio.pause();
+      }
+    }
+
+    function setVolume(valor) {
+      if (audio) {
+        audio.volume = valor; // valor entre 0.0 e 1.0
+      }
+    }
+  </script>
+</body>
+</html>
