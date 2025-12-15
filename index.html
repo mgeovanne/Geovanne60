@@ -320,6 +320,11 @@
       background: radial-gradient(circle, rgba(245,196,81,0.22), rgba(0,0,0,0.9));
     }
 
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+    
     /* FOOTER (se precisar) */
     footer {
       max-width: 1100px;
@@ -456,8 +461,9 @@
         <div class="controles">
           <!-- Botão principal: entrar na festa -->
           <div class="botoes-linha">
-            <a class="btn btn-dourado" href="inicio.html" onclick="playaud()">
-              Entrar na Festa <span>&#x25B6;</span>
+            <a href="inicio.html" target="_blank" rel="noopener noreferrer">
+            <button class="btn btn-dourado"  onclick="playaud()">
+              <p>Entrar na Festa <span>&#x25B6;</span></p>
             </a>
           </div>
 
@@ -480,7 +486,7 @@
     </main>
 
     <footer>
-      Bal das Cabeças 2 – Geovanne60 · 2026
+      Bal das Cabeças 2 – Geovanne60 · 2026  | #baldascabecas | #geovanne60
     </footer>
   </div>
 

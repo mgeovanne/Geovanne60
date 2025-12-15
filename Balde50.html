@@ -214,6 +214,29 @@
 
 }
 
+
+.spotify-player {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(245,196,81,0.35);
+  box-shadow: 0 0 30px rgba(0,0,0,0.9);
+}
+
+.spotify-player iframe {
+  border-radius: 14px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .spotify-player iframe {
+    height: 480px;
+  }
+}
+
+
     @media (max-width: 600px) {
       .topbar {
         flex-direction: column;
@@ -256,8 +279,6 @@
           <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
         </nav>
     </header>
-
-
 
 
   
@@ -350,24 +371,6 @@
       </div>
     </section>
 
-
-    <!-- 4) LINKS EXTERNOS (PLAYLIST, CANAL, DRIVE, ETC.) -->
-    <section id="links">
-      <h2>Playlist Oficial Geovanne60</h2>
-      <p class="descricao">
-        Se inspire numa seleção especial de músicas e se prepare para mais momentos inesquecíveis no Bal das Cabeças - Geovanne60!
-      </p>
-
-      <div class="botoes-linha">
-        <!-- Playlist no YouTube / Spotify -->
-        <a
-          href="https://open.spotify.com/playlist/0QcXr0jD8uDDYYtGVaxlCj?si=LW9fbupjS8OakKRRUVMOww&pi=UDqAFJJZRK-Sx"
-          target="_blank"
-          class="btn btn-dourado">
-          Spotify   <img src="assets/Spotify logo.png" alt="Spotify Logo" width="32px" height="auto">
-        </a>
-      </div>
-    </section>
   </main>
 
  
@@ -388,7 +391,7 @@
   </script>
 
   <footer class="rodape">
-    <p><span>#baldascabeças</span></p>
+    <p><span>#baldascabecas</span></p>
     <p><span>#geovanne60</span></p>
   </footer>
 

@@ -37,26 +37,26 @@
 
 div.gallery {
   display: flex;
-  flex-wrap: wrap;              <!--/* permite que quebrem linha */-->
-  justify-content: center;      <!--/* centraliza os itens */-->
-  gap: 1.5rem;                  <!--/* espaçamento entre os cards */-->
+  flex-wrap: wrap;             /* permite que quebrem linha */
+  justify-content: center;      /* centraliza os itens */
+  gap: 1.5rem;                  /* espaçamento entre os cards */
   margin: 0;
   padding: 0;
 }
 
-<!--/* CADA ITEM DA GALERIA */-->
+/* CADA ITEM DA GALERIA */
 
 div.gallery-item {
   border: 2px dotted rgba(245,196,81,0.35);
   box-shadow: 0 0 40px rgba(0,0,0,0.9);
   border-radius: 1rem;
   padding: 2%;
- <!-- /* width: 200%;  <-- removido */
+  /* width: 200%;  <-- removido */
   
   /* Faz o card se adaptar:
      - base de ~280px
      - cresce até um limite confortável
-  */-->
+  */
 
   flex: 1 1 calc(25% - 1.5rem);
   max-width: calc(25% - 1.5rem);
@@ -161,8 +161,7 @@ a{
 
   <main>
       <h1>Serviços</h1><br><br>
-    <h4>Geovanne60</h4><br><br>
-
+      <h4>Geovanne60</h4><br><br>
 
 <div class="gallery">
 
@@ -171,9 +170,11 @@ a{
             <img src="assets/Hoteis Zona Sul - Fairmont.jpg" alt="Hoteis na Zona Sul" width="600" height="400">
         </a>
             <div class="desc">
+              <a target="_blank" href="Hoteis.html">
                 <h4>Hotéis</h4>
-                <p> Para facilitar, veja uma lista de hotéis de diferentes padrões na Zona Sul.</p><br>
-                <p>Prefira uma hospedagem nessas regiões pra ficar mais perto do Bal</p>
+                <p>Para facilitar, veja uma lista de hotéis de diferentes padrões na Zona Sul.</p><br>
+                <p>Prefira uma hospedagem nessas regiões pra ficar mais perto do Bal e facilitar o transporte de Uber ou Táxi.</p>
+              </a>
             </div>
             
     </div>
@@ -183,7 +184,9 @@ a{
         <img src="assets/Salões de Beleza Rio.webp" alt="Salões na Zona Sul" width="600" height="400">
     </a>
         <div class="desc"><h4>Salões na Zona Sul</h4>
-            <p>Aqui você encontra sugestões de Salões de Beleza no Leblon, Ipanema, Copacabana e Flamengo</p>                        
+          <a target="_blank" href="Saloes.html">
+            <p>Aqui você encontra sugestões de Salões de Beleza no Leblon, Ipanema, Copacabana e Flamengo.</p>
+          </a>                        
         </div>
     </div>
 
@@ -192,7 +195,9 @@ a{
         <img src="assets/Cabecas Denis/Denis Linhares.jpeg" alt="Denis Linhares" width="600" height="400">
     </a>
         <div class="desc"><h4>Faça sua Cabeça</h4>
-            <p>Sugestão de profissionais que vão vestir sua cabeça com muita criatividade e elegância.</p>                        
+          <a target="_blank" href="cabecas.html">
+            <p>Para quem ainda não decidiu o look, seguem sugestões de profissionais que vão ajudá-los a vestirem a cabeça com muita criatividade e elegância.</p>
+          </a>
         </div>
     </div>
 
@@ -207,7 +212,7 @@ a{
 
 
   <footer class="rodape">
-    <p><span>#baldascabeças</span></p>
+    <p><span>#baldascabecas</span></p>
     <p><span>#geovanne60</span></p>
   </footer>
 
