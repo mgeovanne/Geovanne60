@@ -104,146 +104,185 @@
         font-size: 22px;
       }
     }
-  </style>
 
+    /* MAIN */
+main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px 16px 40px;
+}
+
+.titulo-pagina{
+  text-align:center;
+  margin:20px 0;
+}
+
+.titulo-pagina h3{
+  font-size:clamp(1.2rem,4.5vw,1.6rem);
+  color:var(--dourado);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* FORM CARD */
+.form-card{
+  max-width:720px;
+  margin:18px auto 0;
+  padding:20px 18px;
+  background:var(--cor-fundo-card);
+  border-radius:18px;
+  border:1px solid rgba(245,196,81,.18);
+  box-shadow:0 0 24px rgba(0,0,0,.65);
+}
+
+form label{
+  display:block;
+  margin:14px 0 6px;
+  color:var(--dourado);
+  font-size:.95rem;
+}
+
+.input-padrao{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(245,196,81,.35);
+  background:rgba(0,0,0,.55);
+  color:var(--branco);
+}
+
+.input-padrao:focus{
+  outline:none;
+  border-color:rgba(245,196,81,.75);
+  box-shadow:0 0 0 3px rgba(245,196,81,.15);
+}
+
+textarea.input-padrao{
+  min-height:140px;
+  resize:vertical;
+}
+
+.enviar{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border-radius:999px;
+  border:none;
+  font-weight:700;
+  font-size: 1.3rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#f5c451,#b0831a);
+  color:#1a1305;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(245,196,81,.55);
+}
+
+/* SUCCESS */
+.rsvp-success{
+  max-width:720px;
+  margin:20px auto 0;
+  padding:18px 16px;
+  border-radius:16px;
+  border:1px solid rgba(245,196,81,.35);
+  background:rgba(0,0,0,.7);
+  text-align:center;
+}
+
+.rsvp-success h2{
+  font-size:clamp(1.6rem,6vw,2.4rem);
+  margin-bottom:8px;
+}
+
+.rsvp-success p{
+  font-size:clamp(.95rem,3.8vw,1.15rem);
+  color:#e6e6e6;
+}
+
+/* FOOTER */
+footer{
+  margin-top:24px;
+  text-align:center;
+  font-size:.75rem;
+  color:var(--cinza);
+}
+</style>
 </head>
 
 
+
 <body>
-  <header class="cabecalho">
+      <header class="cabecalho">
         <img src="assets/6EC8FE7E-8037-4745-980E-F18C97F056FD_1_201_a.jpeg" alt="cabeças" width="15%">
         <nav class="cabecalho__menu">
-          <a class="cabecalho__menu__link" href="inicio.html" target="_blank">Início</a>
-          <a class="cabecalho__menu__link" href="sobreoBal.html" target="_blank">Origem do Bal</a> 
-          <a class="cabecalho__menu__link" href="localEvento.html" target="_blank">Local do Evento</a>
-          <a class="cabecalho__menu__link" href="Balde50.html" target="_blank">O Bal de 50</a>
-          <a class="cabecalho__menu__link" href="linhaTempo.html" target="_blank">Sobre mim</a>
-          <a class="cabecalho__menu__link" href="dressCode.html" target="_blank">Dress Code</a>
-          <a class="cabecalho__menu__link" href="servicos.html" target="_blank">Serviços</a>
-          <a class="cabecalho__menu__link" href="listaPresentes.html" target="_blank">Presentes</a>        
-          <a class="cabecalho__menu__link" href="confirmacaoPresenca.html" target="_blank">RSVP</a>
+          <a class="cabecalho__menu__link" href="inicio.html">Início</a>
+          <a class="cabecalho__menu__link" href="sobreoBal.html">Origem do Bal</a> 
+          <a class="cabecalho__menu__link" href="localEvento.html">Local do Evento</a>
+          <a class="cabecalho__menu__link" href="Balde50.html">O Bal de 50</a>
+          <a class="cabecalho__menu__link" href="linhaTempo.html">Sobre mim</a>
+          <a class="cabecalho__menu__link" href="dressCode.html">Dress Code</a>
+          <a class="cabecalho__menu__link" href="servicos.html">Serviços</a>
+          <a class="cabecalho__menu__link" href="listaPresentes.html">Presentes</a>        
+          <a class="cabecalho__menu__link" href="confirmacaoPresenca.html">RSVP</a>
         </nav>
-    </header>
+      </header>
 
 
   <main>
 
-    <form
-      action="https://docs.google.com/forms/d/e/1FAIpQLSda-T77gwohKL2LMyk2xHwdYggEOkauOUKkaK65-fIWfeeoag/formResponse" 
-        method="POST" 
-        target="rsvp_iframe"
-        id="rsvp-form"
-        onsubmit="rsvpHandleSubmit()"
-      >
-       
-        <!-- E-mail principal (E-mail *) -->
-    <label for="emailpessoal">Informe teu E-mail (*)</label>
-    <input 
-      type="email" 
-      id="emailpessoal" 
-      name="entry.1341745646" 
-      required 
-      class="input-padrao"
-      placeholder="seuemail@domínio.com">
-    
+          <div>
+              <a class="voltar-link" href="inicio.html"><span class="voltar">Voltar</span></a>
+          </div>
 
-    
-    <!-- Nome -->
-    <label for="nome">Qual o teu Nome? (*)</label>
-    <input 
-      type="text" 
-      id="nome" 
-      name="entry.562010409" 
-      required
-      class="input-padrao"
-    >
-    
-    <!-- Sobrenome -->
-    <label for="sobrenome">Sobrenome *</label>
-    <input 
-      type="text" 
-      id="sobrenome" 
-      name="entry.218963339" 
-      required
-      class="input-padrao"
-    >
-
-<!-- Telefone para contato -->
-    <label for="telefone">Telefone móvel para contato?</label>
-    <input 
-      type="tel" 
-      id="telefone" 
-      name="entry.1529521014"
-      class="input-padrao" 
-      placeholder="+XX (XX) XXXXX-XXXX"
-    >
-
-<!-- Endereço para correspondência -->
-    <label for="endereco">Endereço para envio do convite?</label>
-    <input 
-      type="text" 
-      id="endereco" 
-      name="entry.825114056"
-      class="input-padrao" 
-      placeholder="Rua, Número, Bairro, Cidade, Estado"
-      required
-    >
-
-<!-- CEP do endereço -->
-    <label for="CEP">Informe o CEP:</label>
-    <input 
-      type="text
-      id="CEP" 
-      name="entry.1664405540"
-      class="input-padrao" 
-      placeholder="XXXXX-XXX"
-      required
-    >
+          <h3 class="titulo-pagina">Confirme sua participação para receber a entrada<br> para o Bal das Cabeças</h3>
 
 
-
-
-<!-- Possui acompanhante? (radio) -->
-    <label for="acompanhante">Possui acompanhante?</label>
-        <input 
-          type="text" 
-          id="acompanhante"
-          name="entry.1024493876" 
-          value="" 
-          required
+      <div class="form-card">
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSda-T77gwohKL2LMyk2xHwdYggEOkauOUKkaK65-fIWfeeoag/formResponse"
+          method="POST"
+          target="rsvp_iframe"
+          id="rsvp-form"
+          onsubmit="rsvpHandleSubmit()"
         >
-     
 
-        <!-- Nome e Sobrenome do Acompanhante -->
-    <label for="acompanhante">Nome e Sobrenome do Acompanhante?</label>
-    <input 
-      type="text" 
-      id="acompanhante" 
-      name="entry.1349354248"
-      class="input-padrao"
-    >
+          <label>Informe seu E-mail *</label>
+          <input type="email" name="entry.1341745646" class="input-padrao" required placeholder="seuemail@domínio.com">
 
-        <!-- Necessidade especial -->
-    <label for="necessidade">Se tiver alguma necessidade especial (acessibilidade ou alimentação), ou se quiser 
-      deixar alguma mensagem para mim, escreva abaixo:</label>
-    <textarea 
-      id="necessidade" 
-      name="entry.806355275"
-      rows="10"
-      cols="90"
-      class="input-padrao">
-    </textarea>
+          <label>Qual o seu Nome? *</label>
+          <input type="text" name="entry.562010409" class="input-padrao" required>
 
-    <br><br>
+          <label>E o Sobrenome? *</label>
+          <input type="text" name="entry.218963339" class="input-padrao" required>
 
+          <label>Telefone móvel para contato?</label>
+          <input type="tel" name="entry.1529521014" class="input-padrao" inputmode="numeric" placeholder="+XX (XX) XXXXX-XXXX">
 
-    <input type="submit" value="Enviar Formulário" class="enviar">
+          <label>Informe seu Endereço para envio do convite: *</label>
+          <input type="text" name="entry.825114056" class="input-padrao" required placeholder="Rua, Número, Bairro, Cidade, Estado">
 
-    <br>
+          <label>Não se esqueça do CEP: *</label>
+          <input type="text" name="entry.1664405540" class="input-padrao" inputmode="numeric" required placeholder="XXXXX-XXX">
 
-  </form>
+          <label>Possui acompanhante? *</label>
+          <select name="entry.1024493876" class="input-padrao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option>Sim</option>
+            <option>Não</option>
+          </select>
 
-</main>
+          <label>Nome e Sobrenome do Acompanhante?</label>
+          <input type="text" name="entry.1349354248" class="input-padrao">
+
+          <label>Se tiver alguma necessidade especial (acessibilidade ou alimentação), ou se quiser 
+          deixar alguma mensagem para mim, escreva abaixo:</label>
+          <textarea name="entry.806355275" class="input-padrao"></textarea>
+
+          <input type="submit" value="Enviar Confirmação" class="enviar">
+        </form>
+      </div>
+
+  </main>
 
 
 <!-- IFRAME ESCONDIDO PRA RECEBER A RESPOSTA DO FORM DO GOOGLE-->
@@ -312,18 +351,17 @@
 
   .rsvp-success h2 {
     margin-bottom: 0.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .rsvp-success p {
     margin: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 </style>
 
   <footer class="rodape">
-    <p><span>#baldascabecas</span></p>
-    <p><span>#geovanne60</span></p>
+    <p>#baldascabecas · #geovanne60 · 2026</p>
   </footer>
 
 </body>
