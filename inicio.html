@@ -156,16 +156,34 @@ a{
             <a class="cabecalho__menu__link" href="listaPresentes.html">Presentes</a>        
             <a class="cabecalho__menu__link" href="confirmacaoPresenca.html">RSVP</a>
         </nav>
-        
+       
+         
 
 
         
     </header>
 
   <main>
+    <!-- Controle de áudio -->
+           <audio id="audioGlobal" src="audio/Crazy.mp3" loop></audio>
+          
+              <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+            <!-- Fim Controle de áudio -->
     <h1>Bal das Cabeças</h1><br><br>
     <h4>Geovanne60</h4><br><br>
-
+ 
+          
+            
+          
+        
+  
 <div class="gallery">
 
     <div class="gallery-item">
@@ -189,7 +207,7 @@ a{
             <a href="localEvento.html">
             <h3>MAM</h3>
             <h2>Museu de Arte Moderna</h2>
-            <p>Av. Infante Dom Henrique, 85 - Parque do Flamengo, Rio de Janeiro - RJ</p>
+            <p>Av. Infante Dom Henrique, 85 - Parque do Flamengo</p>
             <p>Rio de Janeiro (RJ)</p>
             </a>
         </div>
@@ -299,7 +317,25 @@ a{
     <p><span>#geovanne60</span></p>
   </footer>
 
+<script>
+  // Função de áudio //
+  const audio = document.getElementById("audioGlobal");
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = localStorage.getItem("audioStatus");
+    if (status === "playing") audio.play().catch(()=>{});
+  });
+
+  function playaud(){
+    audio.play().catch(()=>{});
+    localStorage.setItem("audioStatus","playing");
+  }
+
+  function pauseaud(){
+    audio.pause();
+    localStorage.setItem("audioStatus","paused");
+  }
+</script>
 
 </body>
 

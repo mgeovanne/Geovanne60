@@ -517,7 +517,20 @@
 
 
 <body>
+  
   <main class="hospedagem-page">
+     <!-- Controle de áudio -->
+           <audio id="audioGlobal" src="audio/Crazy.mp3" loop></audio>
+          
+              <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+            <!-- Fim Controle de áudio -->
     <!-- Cabeçalho da página -->
     <header class="hospedagem-header">
         <div>
@@ -698,6 +711,26 @@
     </p>
   </main>
 
-  
+  <script>
+  // Função de áudio //
+  const audio = document.getElementById("audioGlobal");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = localStorage.getItem("audioStatus");
+    if (status === "playing") audio.play().catch(()=>{});
+  });
+
+  function playaud(){
+    audio.play().catch(()=>{});
+    localStorage.setItem("audioStatus","playing");
+  }
+
+  function pauseaud(){
+    audio.pause();
+    localStorage.setItem("audioStatus","paused");
+  }
+</script>
+
+
 </body>
 </html>

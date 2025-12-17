@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="theme-color" content="#FFD700" />
+  <meta property="og:title" content="Bal das Cabecas | Geovanne60" />
+  <meta property="og:description" content="Veja o site que eu mesmo fiz com detalhes e informações para celebrar os meus 60 anos. Entre no clima e venha de cabeca feita." />
+  <meta property="og:image" content="assets/556A32CD-D781-432B-9D2A-D996BC9D0862_4_5005_c.jpeg" />
+  <meta property="og:url" content="https://geovanne60.com/" />
+  <meta property="og:type" content="website" />
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles/main.css" />
   <script defer src="scripts/main.js"></script>
   <title>Bal das Cabeças | Geovanne60</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Rochester&display=swap" rel="stylesheet">
@@ -484,8 +488,8 @@
         <div class="controles">
           <!-- Botão principal: entrar na festa -->
           <div class="botoes-linha">
-            <a href="inicio.html" target="_blank" rel="noopener noreferrer">
-            <button class="btn btn-dourado"  onclick="playaud()">
+            <a href="inicio.html">
+              <button class="btn btn-dourado"  onclick="playaud(); localStorage.setItem('audioStatus','playing');">
               <p>Entrar na Festa <span>&#x25B6;</span></p>
             </a>
           </div>
@@ -553,7 +557,7 @@
     atualizarCountdown();
     setInterval(atualizarCountdown, 1000);
 
-    // ===== ÁUDIO =====
+ // ===== ÁUDIO =====
     const audio = document.getElementById("meuAudio");
 
     function playaud() {
@@ -573,6 +577,11 @@
         audio.volume = valor; // valor entre 0.0 e 1.0
       }
     }
-  </script>
+
+
+</script>
+
+
+
 </body>
 </html>

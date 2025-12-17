@@ -169,6 +169,18 @@ a{
     </header>
 
 <main>
+   <!-- Controle de áudio -->
+           <audio id="audioGlobal" src="audio/Crazy.mp3" loop></audio>
+          
+              <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+            <!-- Fim Controle de áudio -->
 
         <div>
           <a class="voltar-link" href="inicio.html"><span class="voltar">Voltar</span></a>
@@ -214,7 +226,7 @@ a{
                 Fundado em 1918, o local abriga artistas de diversas áreas, como atores, músicos e figurinistas, e conta com estrutura de lazer, 
                 atividades culturais e serviços de saúde, como fisioterapia e cuidados de beleza. <br><br>
                 A instituição sobrevive de doações em dinheiro, objetos, alimentos e trabalho voluntário. 
-<p>
+              </p>
             </a>
         </div>
     </div>
@@ -251,6 +263,26 @@ a{
       <p><span>#baldascabecas</span></p>
       <p><span>#geovanne60</span></p>
   </footer>
+
+<script>
+  // Função de áudio //
+  const audio = document.getElementById("audioGlobal");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = localStorage.getItem("audioStatus");
+    if (status === "playing") audio.play().catch(()=>{});
+  });
+
+  function playaud(){
+    audio.play().catch(()=>{});
+    localStorage.setItem("audioStatus","playing");
+  }
+
+  function pauseaud(){
+    audio.pause();
+    localStorage.setItem("audioStatus","paused");
+  }
+</script>
 
 
 </body>

@@ -143,7 +143,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100;
       border: 0;
     }
 
@@ -288,6 +288,18 @@
     </header>
 
   <main>
+     <!-- Controle de áudio -->
+           <audio id="audioGlobal" src="audio/Crazy.mp3" loop></audio>
+          
+              <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+            <!-- Fim Controle de áudio -->
 
           <div>
           <a class="voltar-link" href="inicio.html"><span class="voltar">Voltar</span></a>
@@ -304,9 +316,12 @@
   <div class="gallery">
 
     <div class="desc">
-      <p>O Bal das cabeças nasceu de uma inspiração no Surrealismo de Salvador Dalí. Ele organizava uma série de jantares e eventos surrealistas em diferentes épocas, com destaque para o final dos anos 1940 e início dos 1970. </p><br>
-      <p>Em 1941, Dalí e Gala organizaram um baile em Monterey, Califórnia, chamado <strong>Noite em uma Floresta Surrealista</strong>, um evento beneficente para artistas europeus refugiados, onde os convidados foram incentivados a se vestir com base em seus sonhos.</p><br> 
-          Os eventos de Dalí eram conhecidos por serem extravagantes, chocantes e projetados para criar uma experiência sensorial e imaginativa completa, muitas vezes com animais selvagens e apresentações de comida bizarras que mais tarde foram documentadas em seu livro de receitas, <strong>Les Dîners de Gala</strong>.</p><br>
+      <p>O Bal das cabeças nasceu de uma inspiração no Surrealismo de Salvador Dalí. Ele organizava uma série de jantares e eventos surrealistas em 
+        diferentes épocas, com destaque para o final dos anos 1940 e início dos 1970. </p><br>
+      <p>Em 1941, Dalí e sua esposa Gala organizaram um baile em Monterey, Califórnia, chamado <strong>Noite em uma Floresta Surrealista</strong>, um evento 
+        beneficente para artistas europeus refugiados, onde os convidados foram incentivados a se vestir com base em seus sonhos.</p><br> 
+          Os eventos de Dalí eram conhecidos por serem extravagantes, chocantes e projetados para criar uma experiência sensorial e imaginativa completa, 
+          muitas vezes com animais selvagens e apresentações de comida bizarras que mais tarde foram documentadas em seu livro de receitas, <strong>Les Dîners de Gala</strong>.</p><br>
       
     </div>
 
@@ -315,7 +330,7 @@
       <img src="assets/Ball surrealista Gala e Dali.jpg" width="80%">
 
       <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/RDKBL5MRy9g?si=rr4HxsgZiJC5apLT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="auto" src="https://www.youtube.com/embed/RDKBL5MRy9g?si=rr4HxsgZiJC5apLT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
     </div>
@@ -327,13 +342,16 @@
 
   
   <div class="desc">
-      <p>O evento mais notável e lendário que envolve Dalí é o <strong>Baile Surrealista de 1972</strong>, organizado pela Baronesa Marie-Hélène de Rothschild no Château de Ferrières, na França, para o qual Dalí emprestou sua imaginação surrealista.</p><br>
+      <p>O evento mais notável e lendário que envolve Dalí é o <strong>Baile Surrealista de 1972</strong>, organizado pela Baronesa Marie-Hélène de Rothschild no Château de Ferrières, 
+        na França, para o qual Dalí emprestou sua imaginação surrealista.</p><br>
 
       <p>Detalhes do Baile Surrealista de 1972:</p><br>
       <p class="Item">&checkmark; Convites: Foram impressos com texto invertido, só podendo ser lido corretamente através de um espelho. </p><br>
-      <p class="Item">&check; Ambiente: O castelo foi iluminado com luzes cor de laranja em movimento para parecer que estava em chamas. Os convidados passavam por um labirinto de fitas pretas que imitavam teias de aranha.</p><br>
-      <p class="Item">&check; Decoração e Atrações: A festa contou com mordomos vestidos de gatos (alguns "adormecidos" em poses encenadas), leões e macacos soltos, e a mesa de jantar tinha pratos servidos em sapatos.</p><br>
-      <p class="Item">&check; Trajes: Os convidados, incluindo Audrey Hepburn, vestiram máscaras e trajes extravagantes e oníricos. Dalí e Gala, sua esposa, também estavam presentes em trajes surreais.</p><br>
+      <p class="Item">&check; Ambiente: O castelo foi iluminado com luzes cor de laranja em movimento para parecer que estava em chamas. 
+        Os convidados passavam por um labirinto de fitas pretas que imitavam teias de aranha.</p><br>
+      <p class="Item">&check; Decoração e Atrações: A festa contou com mordomos vestidos de gatos (alguns "adormecidos" em poses encenadas), 
+        leões e macacos soltos, e a mesa de jantar tinha pratos servidos em sapatos.</p><br>
+      <p class="Item">&check; Trajes: Os convidados, incluindo Audrey Hepburn, vestiram máscaras e trajes extravagantes e oníricos. Dalí e Gala também estavam presentes em trajes surreais.</p><br>
   </div>
 
   <div class="gallery">
@@ -343,7 +361,7 @@
         <img src="assets/Bal Baronesa Rotschield.avif" width="90%">
 
       <div class="video-container">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/nenIoA7Z1yI?si=TqeyWkG-BSmtUHKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="auto" src="https://www.youtube.com/embed/nenIoA7Z1yI?si=TqeyWkG-BSmtUHKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
     </div>
@@ -432,5 +450,25 @@
     <p><span>#geovanne60</span></p>
   </footer>
   
+<script>
+  // Função de áudio //
+  const audio = document.getElementById("audioGlobal");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = localStorage.getItem("audioStatus");
+    if (status === "playing") audio.play().catch(()=>{});
+  });
+
+  function playaud(){
+    audio.play().catch(()=>{});
+    localStorage.setItem("audioStatus","playing");
+  }
+
+  function pauseaud(){
+    audio.pause();
+    localStorage.setItem("audioStatus","paused");
+  }
+</script>
+
 </body>
 </html>

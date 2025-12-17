@@ -509,7 +509,18 @@
     </header>
 
   <main>
-
+ <!-- Controle de áudio -->
+           <audio id="audioGlobal" src="audio/Crazy.mp3" loop></audio>
+          
+              <div class="button__audio-controles">
+              <button class="btn-icon" type="button" onclick="playaud()" aria-label="Tocar áudio">
+                &#x25B6;
+              </button>
+              <button class="btn-icon" type="button" onclick="pauseaud()" aria-label="Pausar áudio">
+                &#x23F8;
+              </button>
+            </div>
+            <!-- Fim Controle de áudio -->
           <div>
           <a class="voltar-link" href="inicio.html"><span class="voltar">Voltar</span></a>
       </div>
@@ -520,7 +531,7 @@
 <section class="local-evento local-evento--premium">
   <div class="local-header">
     <!-- <span class="local-tag">Local do Bal</span> -->
-    <h2>MAM Rio – Museu de Arte Moderna</h2>
+    <h2>MAM – Museu de Arte Moderna</h2>
     <p class="leadin">
       Um ícone modernista do Rio, escolhido para uma noite de arte, elegância e celebração.
     </p>
@@ -589,7 +600,25 @@
     <p><span>#geovanne60</span></p>
   </footer>
 
+<script>
+  // Função de áudio //
+  const audio = document.getElementById("audioGlobal");
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = localStorage.getItem("audioStatus");
+    if (status === "playing") audio.play().catch(()=>{});
+  });
+
+  function playaud(){
+    audio.play().catch(()=>{});
+    localStorage.setItem("audioStatus","playing");
+  }
+
+  function pauseaud(){
+    audio.pause();
+    localStorage.setItem("audioStatus","paused");
+  }
+</script>
 
 </body>
 </html>

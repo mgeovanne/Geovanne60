@@ -1,0 +1,27 @@
+             <a href="inicio.html" target="_blank" rel="noopener noreferrer"></a>
+
+
+   <script>  
+    // ===== ÁUDIO =====
+    const audio = document.getElementById("meuAudio");
+
+    function playaud() {
+      if (audio) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    function pauseaud() {
+      if (audio) {
+        audio.pause();
+      }
+    }
+
+    function setVolume(valor) {
+      if (audio) {
+        audio.volume = valor; // valor entre 0.0 e 1.0
+      }
+    }
+
+    </script>
+       
